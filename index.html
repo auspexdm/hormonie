@@ -282,13 +282,17 @@
 
 <script>
   /* ------------------------------------------------------------
-     ONE MANUAL STEP: paste your free Web3Forms access key below.
-     Get one instantly at https://web3forms.com (just needs an
-     email to verify) — this is what actually delivers submitted
-     emails to your inbox. Without it, the form still validates
-     and shows a success message, but nothing is sent anywhere.
+     Signups are delivered via FormSubmit.co, sent straight to
+     DESTINATION_EMAIL below — no account or API key needed.
+
+     ONE MANUAL STEP: FormSubmit only activates a new destination
+     address after a human confirms it. The very first submission
+     this page ever sends will arrive at that inbox as an
+     "activate your form" email from FormSubmit — open it and
+     click confirm. Every submission after that (this test one
+     included — just resubmit it) lands as a normal email.
   ------------------------------------------------------------ */
-  const WEB3FORMS_KEY = ""; // <-- paste your access key here
+  const DESTINATION_EMAIL = "contact@hormonieindia.com";
 
   // clock — decorative only
   function tickClock(){
@@ -365,21 +369,18 @@
       btn.textContent = 'sending...';
 
       try {
-        if (WEB3FORMS_KEY) {
-          await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              access_key: WEB3FORMS_KEY,
-              subject: 'new Hormonié early-access signup',
-              from_name: 'Hormonié landing page',
-              email: email
-            })
-          });
-        }
+        await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(DESTINATION_EMAIL), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            _subject: 'new Hormonié early-access signup',
+            _template: 'table'
+          })
+        });
       } catch (err) {
         // network hiccup — still confirm locally so the visitor isn't
-        // stuck; worst case they don't reach your inbox this one time.
+        // stuck; worst case this one doesn't reach your inbox.
       }
 
       sessionStorage.setItem('hormine_joined', '1');
