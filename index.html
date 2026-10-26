@@ -1,380 +1,720 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="theme-color" content="#B6C2A7" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hormonié — coming soon</title>
-<meta name="description" content="skincare built for your hormones, not against them. Hormonié is brewing something cycle-synced and secret — get in before launch." />
-
-<meta property="og:title" content="Hormonié — coming soon" />
-<meta property="og:description" content="skincare built for your hormones, not against them. Hormonié is brewing something cycle-synced and secret — get in before launch." />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Hormonié — coming soon" />
-<meta name="twitter:description" content="skincare built for your hormones, not against them. Hormonié is brewing something cycle-synced and secret — get in before launch." />
-
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%235A6C57'/%3E%3Ccircle cx='20' cy='20' r='7' fill='none' stroke='%23FBF5EC' stroke-width='3.5'/%3E%3Cpath d='M10 10 A13 13 0 0 0 10 30 A10 10 0 0 1 10 10 Z' fill='%23FBF5EC'/%3E%3Cpath d='M30 10 A13 13 0 0 1 30 30 A10 10 0 0 0 30 10 Z' fill='%23FBF5EC'/%3E%3C/svg%3E" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hormonié — Hormone-conscious skincare, built for your cycle</title>
+<meta name="description" content="Hormonié makes hormone-conscious skincare for skin that changes with your cycle. Meet Origine Gel Moussant.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --cream:#FBF5EC;
-    --cream-dim:#F9EBD7;
-    --pink:#DFE5D6;
-    --pink-hot:#9AAB8E;
-    --lilac:#B6C2A7;
-    --mint:#F9EBD7;
-    --accent:#BF5238;
-    --ink:#2F3D34;
-    --ink-soft:rgba(47,61,52,0.68);
-    --ink-faint:rgba(47,61,52,0.42);
-    --line:#2F3D34;
-  }
-  *{box-sizing:border-box;}
-  html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0;
-    background:
-      radial-gradient(circle at 1px 1px, rgba(47,61,52,0.14) 1px, transparent 0) 0 0/22px 22px,
-      var(--lilac);
-    color:var(--ink);
-    font-family:'Nunito',ui-sans-serif,system-ui,sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  ::selection{ background:var(--accent); color:var(--cream); }
-  a{ color:inherit; }
-  button{ font-family:inherit; }
-  :focus-visible{ outline:3px solid var(--ink); outline-offset:2px; }
+:root{
+  --ink:#16201a;
+  --deep:#1f2c23;
+  --forest:#2f4235;
+  --moss:#4d6450;
+  --sage:#8fa68a;
+  --sage-2:#a9bba3;
+  --mist:#cdd8c6;
+  --cream:#efe8da;
+  --sand:#d9ccb4;
+  --serif:'Instrument Serif',Georgia,serif;
+  --display:'Italiana',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
-  .os-frame{
-    max-width:900px;
-    margin:28px auto;
-    border:3px solid var(--line);
-    border-radius:18px;
-    background:var(--cream);
-    box-shadow:8px 8px 0 var(--ink);
-    overflow:hidden;
-  }
-  @media (max-width:640px){
-    .os-frame{ margin:0; border-radius:0; border-width:0 0 3px 0; box-shadow:none; }
-  }
+/* ---------- HEADER ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;pointer-events:none}
+.hdr > *{pointer-events:auto}
+.hdr-logo{font-family:var(--display);font-size:30px;letter-spacing:.04em;color:var(--cream);opacity:0;transform:translateY(-8px);transition:.5s}
+.hdr.scrolled .hdr-logo{opacity:1;transform:none}
+.hdr-logo{filter:drop-shadow(0 1px 8px rgba(22,32,26,.55))}
+.nav{display:flex;gap:6px}
+.nav a,.nav button{border:1px solid rgba(47,66,53,.35);background:var(--cream);color:var(--forest);font-family:var(--serif);font-size:16px;padding:6px 12px;line-height:1.2;transition:background .25s,color .25s;display:flex;align-items:center;gap:6px}
+.nav a:hover,.nav button:hover{background:var(--sage-2);color:var(--ink)}
+.nav .ico{padding:6px 9px}
+.bag-count{font-family:var(--sans);font-size:11px;background:var(--forest);color:var(--cream);border-radius:20px;padding:1px 6px;display:none}
+.bag-count.on{display:inline-block}
+.progress{position:fixed;left:0;bottom:0;height:3px;background:var(--sage);z-index:60;width:0}
 
-  .os-titlebar{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:10px 16px;
-    background:var(--lilac);
-    border-bottom:3px solid var(--line);
-    font-family:'Space Mono',monospace;
-    font-size:12px;
-  }
-  .os-dots{ display:flex; gap:6px; flex:none; }
-  .os-dots span{
-    width:11px; height:11px; border-radius:50%;
-    border:2px solid var(--ink); display:block;
-  }
-  .os-dots span:nth-child(1){ background:var(--pink-hot); }
-  .os-dots span:nth-child(2){ background:var(--accent); }
-  .os-dots span:nth-child(3){ background:var(--mint); }
-  .os-filename{ flex:1; text-align:center; letter-spacing:0.02em; }
-  .os-clock{ flex:none; opacity:0.75; font-variant-numeric:tabular-nums; }
-  .blink{ animation:blink 1s steps(1) infinite; }
-  @media (prefers-reduced-motion:reduce){ .blink{ animation:none; } }
-  @keyframes blink{ 50%{ opacity:0; } }
+/* ---------- WORDMARK ---------- */
+.wm{display:inline-flex;align-items:center;font-family:var(--display);letter-spacing:.02em;line-height:1}
+.wm .o{height:.7em;width:auto;margin:0 -.04em;position:relative;top:-.01em}
 
-  .os-body{ position:relative; overflow:hidden; }
+/* ---------- HERO ---------- */
+.hero{position:relative;height:200vh}
+.hero-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:
+  radial-gradient(60% 70% at 55% 62%, #6f8a6c 0%, #3e5543 38%, #1f2c23 72%, #121a15 100%)}
+.hero-grain{position:absolute;inset:0;opacity:.18;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.hero-wm{position:absolute;left:50%;top:7vh;transform:translateX(-50%);font-size:min(15.5vw,240px);color:var(--cream);white-space:nowrap;z-index:3;transform-origin:50% 0;will-change:transform}
+.hero-moon{position:absolute;left:50%;top:54%;width:min(64vh,62vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle at 38% 34%, #f3eee2 0%, #dfe5d4 30%, #b4c4ab 62%, #8fa68a 100%);box-shadow:0 0 120px 30px rgba(169,187,163,.25), inset -40px -50px 90px rgba(31,44,35,.35);z-index:1}
+.hero-moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 70% 70%,rgba(47,66,53,.18) 0 6%,transparent 7%),radial-gradient(circle at 30% 64%,rgba(47,66,53,.12) 0 4%,transparent 5%),radial-gradient(circle at 60% 30%,rgba(47,66,53,.10) 0 3%,transparent 4%)}
+.hero-tube{position:absolute;left:50%;bottom:-4vh;height:78vh;transform:translateX(-50%) rotate(-8deg);z-index:2;filter:drop-shadow(0 40px 50px rgba(0,0,0,.45));will-change:transform}
+.hero-tag{position:absolute;left:28px;bottom:34px;z-index:4;font-family:var(--serif);font-size:clamp(20px,2vw,28px);line-height:1.15;max-width:280px}
+.hero-meta{position:absolute;right:28px;bottom:34px;z-index:4;text-align:right;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.hero-statement{position:absolute;right:5vw;top:50%;transform:translateY(-50%);text-align:right;z-index:4;opacity:0;transition:opacity .2s linear}
+.hero-statement h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,56px);line-height:1.04}
+.hero-statement p{margin-top:18px;font-size:16px;opacity:.85}
+.mini-cards{position:absolute;right:5vw;bottom:34px;z-index:4;display:flex;gap:10px;opacity:0;transition:opacity .2s}
+.mini-card{display:flex;align-items:center;gap:12px;padding:8px 14px 8px 8px;border:1px solid rgba(239,232,218,.25);background:rgba(22,32,26,.45);backdrop-filter:blur(10px);border-radius:10px;min-width:230px}
+.mini-card .thumb{width:48px;height:48px;border-radius:7px;background:radial-gradient(circle at 50% 70%,#a9bba3,#2f4235);display:grid;place-items:center;overflow:hidden}
+.mini-card .thumb svg{height:42px}
+.mini-card b{font-family:var(--serif);font-weight:400;font-size:18px;display:block}
+.mini-card small{font-size:11px;opacity:.75;display:block}
+.mini-card .arr{margin-left:auto;opacity:.7}
 
-  .blob{ position:absolute; border-radius:50%; filter:blur(38px); opacity:0.55; z-index:0; }
+/* ---------- CYCLE STORY (sticky) ---------- */
+.story-head{background:linear-gradient(var(--ink),var(--deep));text-align:center;padding:90px 20px 50px}
+.story-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,52px);line-height:1.08;max-width:760px;margin:0 auto}
+.story{position:relative;height:420vh}
+.story-stage{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:2fr 1fr;overflow:hidden}
+.story-visual{position:relative;overflow:hidden;transition:background 1s ease}
+.story-visual .sky{position:absolute;inset:0;transition:opacity 1s}
+.story-visual .moonwrap{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:min(46vh,40vw)}
+.story-visual .plinth{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);width:min(52vh,44vw);height:9vh;border-radius:50%;background:radial-gradient(ellipse at 50% 30%,#d9ccb4,#a39478 70%);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.story-visual .stube{position:absolute;left:50%;bottom:13%;height:52vh;transform:translateX(-50%);filter:drop-shadow(0 24px 30px rgba(0,0,0,.4))}
+.story-visual .leaf{position:absolute;opacity:.55;transition:transform 1.2s ease}
+.phase-label{position:absolute;z-index:5;left:28px;top:96px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;background:rgba(239,232,218,.9);color:var(--forest);padding:6px 10px}
+.story-copy{position:relative;background:radial-gradient(120% 80% at 50% 100%,#33483a 0%,#1f2c23 55%,#16201a 100%);padding:0 3.2vw;display:flex;flex-direction:column;justify-content:center}
+.phase{position:absolute;left:3.2vw;right:3.2vw;top:50%;transform:translateY(-40%);opacity:0;transition:opacity .6s,transform .6s}
+.phase.on{opacity:1;transform:translateY(-50%)}
+.phase .wk{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-2)}
+.phase h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.7vw,44px);margin:10px 0 12px;line-height:1.05}
+.phase p{font-size:16px;line-height:1.5;opacity:.88;max-width:330px}
+.bars{position:absolute;left:3.2vw;right:3.2vw;bottom:40px;display:flex;gap:6px}
+.bars span{flex:1;height:2px;background:rgba(239,232,218,.2);position:relative;overflow:hidden}
+.bars span i{position:absolute;inset:0;background:var(--cream);transform-origin:left;transform:scaleX(0)}
 
-  section{ position:relative; z-index:1; padding:64px 40px; }
-  @media (max-width:640px){ section{ padding:48px 22px; } }
+/* ---------- SEASONS (sticky weather scene) ---------- */
+.season-head{background:linear-gradient(#1c271f,var(--ink));text-align:center;padding:90px 20px 50px}
+.season-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,52px);line-height:1.08;max-width:760px;margin:0 auto}
+.season{position:relative;height:440vh}
+.season-stage{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:2fr 1fr;overflow:hidden}
+.scene{position:relative;overflow:hidden}
+.scene .sky{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.scene .sky.on{opacity:1}
+.sky.winter{background:linear-gradient(180deg,#e9eeec 0%,#cdd8d4 55%,#aebdb8 100%)}
+.sky.monsoon{background:radial-gradient(90% 60% at 50% 0%,#5b6864 0%,#3a4743 50%,#232d2a 100%)}
+.sky.summer{background:radial-gradient(70% 70% at 78% 12%,#fff4d6 0%,#f0d9a8 25%,#c9b48a 55%,#8a9a74 100%)}
+.sky.spring{background:radial-gradient(80% 80% at 30% 20%,#dfe8d6 0%,#b9c8b2 40%,#7d9878 100%)}
+.scene svg.world{position:absolute;inset:0;width:100%;height:100%}
+.scene canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.scene .flash{position:absolute;inset:0;background:#f4f7f6;opacity:0;pointer-events:none}
+.scene .layer{transition:opacity 1.2s ease}
+.season-label{position:absolute;left:28px;top:96px;z-index:5;font-size:12px;letter-spacing:.2em;text-transform:uppercase;background:rgba(239,232,218,.92);color:var(--forest);padding:6px 10px}
+.season-copy{position:relative;background:radial-gradient(120% 80% at 50% 100%,#33483a 0%,#1f2c23 55%,#16201a 100%)}
+.sz{position:absolute;left:3.2vw;right:3.2vw;top:50%;transform:translateY(-40%);opacity:0;transition:opacity .6s,transform .6s}
+.sz.on{opacity:1;transform:translateY(-50%)}
+.sz .wk{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-2)}
+.sz h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.7vw,44px);margin:10px 0 12px;line-height:1.05}
+.sz p{font-size:16px;line-height:1.5;opacity:.88;max-width:330px}
+.sbars{position:absolute;left:3.2vw;right:3.2vw;bottom:40px;display:flex;gap:6px}
+.sbars span{flex:1;height:2px;background:rgba(239,232,218,.2);position:relative;overflow:hidden}
+.sbars span i{position:absolute;inset:0;background:var(--cream);transform-origin:left;transform:scaleX(0)}
 
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'Space Mono',monospace;
-    font-size:12px; letter-spacing:0.08em; text-transform:lowercase;
-    color:var(--ink-soft);
-    background:var(--cream-dim);
-    border:2px solid var(--line);
-    border-radius:999px;
-    padding:5px 14px;
-    margin:0 0 18px;
-  }
+/* ---------- MANIFESTO ---------- */
+.manifesto{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center;background:
+  linear-gradient(90deg,rgba(18,26,21,.85) 0%,rgba(18,26,21,.35) 45%,rgba(18,26,21,0) 70%),
+  radial-gradient(70% 90% at 70% 60%,#9fb497 0%,#5f7a5f 40%,#2b3d30 80%)}
+.manifesto .arch{position:absolute;right:8vw;bottom:0;width:min(46vw,620px);aspect-ratio:3/4;border-radius:50% 50% 0 0/38% 38% 0 0;background:linear-gradient(180deg,#e6dfcf,#c9bda3);overflow:hidden;box-shadow:inset 0 30px 80px rgba(0,0,0,.12)}
+.manifesto .arch .sun{position:absolute;left:50%;top:18%;width:42%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,#f6f1e6,#dfe5d4 60%,#b9c8b2)}
+.manifesto .arch svg.leafs{position:absolute;inset:auto 0 0 0;width:100%}
+.manifesto .mtube{position:absolute;right:calc(8vw + min(46vw,620px)*.33);bottom:5vh;height:62vh;transform:rotate(6deg);filter:drop-shadow(0 30px 40px rgba(0,0,0,.35));z-index:2}
+.manifesto .copy{position:relative;z-index:3;padding:0 28px;max-width:720px}
+.manifesto .kick{font-size:clamp(18px,1.6vw,22px);line-height:1.25}
+.manifesto h2{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,96px);line-height:.92;margin-top:16px}
+.manifesto h2 sup{font-size:.28em;vertical-align:top;position:relative;top:.35em}
+.manifesto .side{position:absolute;right:28px;bottom:34px;z-index:3;text-align:right;font-size:clamp(17px,1.4vw,21px);line-height:1.25}
 
-  h1,h2{
-    font-family:'Fredoka',ui-sans-serif,sans-serif;
-    font-weight:700;
-    line-height:1.05;
-    text-wrap:balance;
-    margin:0 0 18px;
-  }
-  h1{ font-size:clamp(34px,6vw,58px); }
-  h2{ font-size:clamp(26px,4vw,36px); }
+/* ---------- SPOTLIGHT ---------- */
+.spot{position:relative;min-height:100vh;padding:120px 0 60px;background:radial-gradient(70% 70% at 50% 45%,#4f6a53 0%,#2f4235 45%,#1a251e 100%);overflow:hidden}
+.spot::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(239,232,218,.18)}
+.spot-wrap{position:relative;max-width:1180px;margin:0 auto;padding:0 28px}
+.thumbs{position:absolute;right:28px;top:-60px;display:flex;gap:10px}
+.thumbs button{width:52px;height:52px;border-radius:8px;overflow:hidden;border:1px solid rgba(239,232,218,.25);opacity:.6;transition:.3s;background:#2a3a2e}
+.thumbs button.on{opacity:1;border:2px solid var(--cream)}
+.thumbs svg{width:100%;height:100%}
+.spot-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px;margin-top:40px}
+.spot-row h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6.2vw,96px);line-height:.95}
+.spot-row .l p,.spot-row .r p{margin-top:12px;font-size:17px;opacity:.85}
+.spot-row .r{text-align:right}
+.card-col{display:flex;flex-direction:column;align-items:center}
+.chip{background:var(--cream);color:var(--forest);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;margin-bottom:14px}
+.card{width:min(30vw,340px);aspect-ratio:1;border-radius:16px;position:relative;overflow:hidden;background:radial-gradient(60% 40% at 50% 88%,rgba(239,232,218,.55),transparent 70%),linear-gradient(180deg,#24332a,#3a5040);box-shadow:0 40px 80px rgba(0,0,0,.4)}
+.card::before{content:"";position:absolute;left:50%;top:-10%;width:70%;height:95%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(239,232,218,.28),rgba(239,232,218,0));clip-path:polygon(38% 0,62% 0,100% 100%,0 100%)}
+.card .view{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .5s,transform .5s}
+.card .view.off{opacity:0;transform:scale(.94)}
+.card .view svg.ct{height:78%;filter:drop-shadow(0 18px 18px rgba(0,0,0,.45));animation:float 5s ease-in-out infinite}
+.card .shadow{position:absolute;left:50%;bottom:9%;width:34%;height:5%;transform:translateX(-50%);border-radius:50%;background:rgba(0,0,0,.35);filter:blur(4px)}
+@keyframes float{50%{transform:translateY(-8px)}}
+.foam{width:72%;aspect-ratio:1;border-radius:50%;background:
+  radial-gradient(circle at 30% 35%,#fff 0 9%,transparent 10%),radial-gradient(circle at 62% 30%,#fbf8f1 0 13%,transparent 14%),radial-gradient(circle at 48% 58%,#fff 0 16%,transparent 17%),radial-gradient(circle at 72% 64%,#f4efe4 0 10%,transparent 11%),radial-gradient(circle at 28% 66%,#f8f4ec 0 12%,transparent 13%),radial-gradient(circle,#e9e3d6,#cfd9c8);box-shadow:inset -10px -16px 30px rgba(77,100,80,.25),0 20px 40px rgba(0,0,0,.35)}
+.spot-foot{display:grid;grid-template-columns:1fr 1fr;margin-top:70px;gap:28px}
+.spot-foot .l{font-size:15px;line-height:1.5;opacity:.85;max-width:300px}
+.spot-foot .r{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.btn{background:var(--cream);color:var(--forest);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:11px 20px;transition:.25s}
+.btn:hover{background:var(--sage-2);color:var(--ink)}
+.spec{font-family:var(--serif);font-size:20px}
+.spot-foot small{font-size:14px;opacity:.8}
 
-  .lede{
-    font-size:18px; line-height:1.6; color:var(--ink-soft);
-    max-width:52ch; margin:0 0 28px;
-  }
+/* ---------- RITUAL STRIP ---------- */
+.ritual{background:var(--cream);color:var(--forest);padding:110px 28px}
+.ritual-in{max-width:1180px;margin:0 auto}
+.ritual h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.2vw,64px);line-height:1;max-width:760px}
+.ritual h2 em{color:var(--moss)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+.step{border-top:1px solid rgba(47,66,53,.3);padding-top:20px}
+.step .n{font-family:var(--serif);font-size:44px;color:var(--sage)}
+.step h4{font-family:var(--serif);font-weight:400;font-size:26px;margin:6px 0 8px}
+.step p{font-size:15px;line-height:1.55;opacity:.85}
 
-  .btn{
-    font-family:'Fredoka',sans-serif; font-weight:600; font-size:16px;
-    color:var(--ink); background:var(--pink-hot);
-    border:3px solid var(--line); border-radius:999px;
-    padding:14px 26px;
-    box-shadow:4px 4px 0 var(--ink);
-    cursor:pointer;
-    display:inline-flex; align-items:center; gap:8px;
-    text-decoration:none;
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  .btn:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
-  .btn:active{ transform:translate(1px,1px); box-shadow:2px 2px 0 var(--ink); }
-  .btn:disabled{ opacity:0.6; cursor:default; transform:none; box-shadow:4px 4px 0 var(--ink); }
+/* ---------- CLOSER ---------- */
+.closer{position:relative;height:110vh;min-height:720px;overflow:hidden;background:radial-gradient(70% 80% at 50% 55%,#a3b79c 0%,#6b8669 38%,#33483a 75%,#1f2c23 100%)}
+.closer .big{position:absolute;left:50%;bottom:6vh;transform:translateX(-50%);font-size:min(19vw,330px);color:var(--cream);white-space:nowrap;z-index:1;opacity:.95}
+.closer .ctube{position:absolute;left:50%;bottom:-8vh;height:80vh;transform:translateX(-50%) rotate(4deg);z-index:2;filter:drop-shadow(0 40px 50px rgba(0,0,0,.4))}
+.closer .lt{position:absolute;left:44px;top:120px;z-index:3;font-size:clamp(19px,1.6vw,24px);line-height:1.25;max-width:330px}
+.closer .rt{position:absolute;right:44px;top:110px;z-index:3;text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.closer .rt h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,3.8vw,62px);line-height:1}
+.closer .rt .btn{margin-top:22px;min-width:290px;text-align:center}
 
-  #hero{ padding-top:56px; }
-  .sticker{
-    position:absolute;
-    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.04em;
-    background:var(--mint); border:2px solid var(--line); border-radius:10px;
-    padding:6px 10px; box-shadow:3px 3px 0 var(--ink);
-    z-index:2;
-  }
-  .sticker.s1{ top:18px; right:32px; transform:rotate(6deg); background:var(--accent); color:var(--cream); font-weight:700; }
-  .sticker.s2{ top:120px; right:-6px; transform:rotate(-8deg); background:var(--pink); display:none; }
-  @media (min-width:640px){ .sticker.s2{ display:inline-block; } }
+/* ---------- FOOTER ---------- */
+footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px}
+.ft{display:grid;grid-template-columns:auto auto 1fr;gap:80px}
+.ft h5{font-size:19px;font-weight:500;margin-bottom:18px}
+.ft ul{list-style:none;display:grid;gap:12px;font-size:15px;opacity:.85}
+.ft ul a:hover{color:var(--sage-2)}
+.ft .news{justify-self:end;text-align:right;max-width:330px}
+.social{display:flex;gap:12px;justify-content:flex-end;margin-bottom:22px}
+.social a{opacity:.85}
+.news p{font-size:15px;line-height:1.5;opacity:.85}
+.news form{margin-top:18px;display:flex;background:var(--cream);border-radius:40px;padding:4px}
+.news input[type=email]{flex:1;border:0;background:none;padding:10px 16px;font:inherit;font-size:14px;color:var(--forest);outline:none;min-width:0}
+.news input::placeholder{color:var(--moss)}
+.news form button{background:var(--forest);color:var(--cream);border-radius:40px;padding:8px 16px;font-size:13px}
+.news label{display:flex;gap:8px;text-align:left;font-size:11px;opacity:.75;margin-top:12px;line-height:1.4}
+.news .ok{font-size:13px;color:var(--sage-2);margin-top:10px;display:none}
+.fb{display:flex;justify-content:space-between;margin-top:56px;font-size:11px;letter-spacing:.06em;opacity:.65;gap:16px;flex-wrap:wrap}
 
-  .divider{ border:none; border-top:3px dashed var(--line); opacity:0.35; margin:0; }
+/* ---------- TOAST ---------- */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:var(--cream);color:var(--forest);padding:12px 20px;font-size:14px;z-index:70;transition:.35s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
 
-  .chatwrap{ display:flex; flex-direction:column; gap:14px; max-width:56ch; }
-  .bubble{
-    font-family:'Space Mono',monospace; font-size:14.5px; line-height:1.55;
-    background:var(--cream-dim); border:2px solid var(--line); border-radius:14px;
-    padding:14px 18px; width:fit-content; max-width:100%;
-  }
-  .bubble.hot{ background:var(--pink); }
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
 
-  .badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
-  .badge{
-    font-family:'Space Mono',monospace; font-size:12px;
-    border:2px solid var(--line); border-radius:999px; padding:7px 14px;
-    background:var(--lilac);
-  }
-  .badge:nth-child(2){ background:var(--pink); }
-  .badge:nth-child(3){ background:var(--mint); }
-
-  .moods{ display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 22px; }
-  .mood-chip{
-    font-family:'Nunito',sans-serif; font-weight:700; font-size:14px;
-    border:2px solid var(--line); border-radius:999px; padding:10px 16px;
-    background:var(--cream-dim); cursor:pointer;
-  }
-  .mood-chip[aria-pressed="true"]{ background:var(--accent); color:var(--cream); }
-  .mood-response{ font-family:'Space Mono',monospace; font-size:14.5px; min-height:26px; color:var(--ink-soft); }
-
-  .joinpanel{
-    background:var(--lilac); border:3px solid var(--line); border-radius:18px;
-    padding:36px; box-shadow:6px 6px 0 var(--ink);
-  }
-  @media (max-width:640px){ .joinpanel{ padding:24px; } }
-  .joinform{ display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
-  .joinform .btn{ background:var(--accent); color:var(--cream); }
-  .joinform input[type=email]{
-    flex:1 1 220px; font-family:'Nunito',sans-serif; font-weight:700; font-size:15px;
-    padding:14px 16px; border:3px solid var(--line); border-radius:999px;
-    background:var(--cream); color:var(--ink);
-  }
-  .joinform input[type=email]::placeholder{ color:var(--ink-faint); font-weight:600; }
-  .hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
-  .count-line{ font-family:'Space Mono',monospace; font-size:13px; color:var(--ink-soft); margin-top:14px; }
-  .join-error{ font-family:'Space Mono',monospace; font-size:13px; color:#8C3B2E; margin-top:10px; display:none; }
-  .success-msg{ margin-top:18px; margin-bottom:0; }
-
-  .marquee{
-    border-top:3px solid var(--line); border-bottom:3px solid var(--line);
-    background:var(--ink); color:var(--cream);
-    font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.06em;
-    overflow:hidden; white-space:nowrap; padding:12px 0;
-  }
-  .marquee-track{ display:inline-block; padding-left:100%; animation:scroll 22s linear infinite; }
-  @media (prefers-reduced-motion:reduce){ .marquee-track{ animation:none; padding-left:16px; } }
-  @keyframes scroll{ from{ transform:translateX(0); } to{ transform:translateX(-100%); } }
-
-  footer{ padding:28px 40px 40px; font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-soft); }
-  @media (max-width:640px){ footer{ padding:24px 22px 32px; } }
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .hdr{padding:14px 16px}
+  .hdr-logo{font-size:24px}
+  .nav .hide-m{display:none}
+  .nav a,.nav button{font-size:14px;padding:5px 9px}
+  .hero-wm{top:12vh;font-size:16vw}
+  .hero-moon{width:78vw;top:50%}
+  .hero-tube{height:62vh}
+  .hero-tag{left:16px;bottom:24px;font-size:19px;max-width:200px}
+  .hero-meta{display:none}
+  .hero-statement{right:16px;left:16px;top:20vh;transform:none}
+  .hero-statement h2{font-size:32px}
+  .mini-cards{left:16px;right:16px;bottom:20px;flex-direction:column}
+  .mini-card{min-width:0}
+  .story-stage{grid-template-columns:1fr;grid-template-rows:58vh 42vh}
+  .story-visual .moonwrap{width:34vh}
+  .story-visual .stube{height:34vh}
+  .story-visual .plinth{width:40vh;height:6vh}
+  .phase-label{left:16px;top:76px}
+  .phase{left:20px;right:20px}
+  .phase p{font-size:15px}
+  .bars{left:20px;right:20px;bottom:22px}
+  .season-stage{grid-template-columns:1fr;grid-template-rows:60vh 40vh}
+  .season-label{left:16px;top:76px}
+  .sz{left:20px;right:20px}
+  .sz p{font-size:15px}
+  .sbars{left:20px;right:20px;bottom:22px}
+  .manifesto{align-items:flex-start;padding-top:110px}
+  .manifesto .arch{width:78vw;right:-6vw}
+  .manifesto .mtube{height:42vh;right:42vw}
+  .manifesto .copy{padding:0 16px}
+  .manifesto .side{left:16px;right:auto;text-align:left;bottom:auto;top:calc(110px + 270px);max-width:220px;font-size:15px;display:none}
+  .spot{padding-top:110px}
+  .spot-wrap{padding:0 16px}
+  .thumbs{right:16px;top:-56px}
+  .spot-row{grid-template-columns:1fr;text-align:center;gap:20px}
+  .spot-row .r{text-align:center}
+  .spot-row .l{order:1}.card-col{order:2}.spot-row .r{order:3}
+  .card{width:min(78vw,340px)}
+  .spot-foot{grid-template-columns:1fr;text-align:center;margin-top:40px}
+  .spot-foot .l{margin:0 auto}
+  .spot-foot .r{align-items:center;text-align:center}
+  .spot::before{display:none}
+  .ritual{padding:80px 16px}
+  .steps{grid-template-columns:1fr}
+  .closer{height:100vh}
+  .closer .lt{left:16px;top:90px;font-size:17px;max-width:220px}
+  .closer .rt{right:16px;left:16px;top:200px;align-items:flex-start;text-align:left}
+  .closer .rt h2{font-size:36px}
+  .closer .rt .btn{min-width:0;width:100%}
+  .closer .ctube{height:48vh;bottom:-6vh}
+  .closer .big{bottom:30vh;font-size:19vw;opacity:.5}
+  footer{padding:44px 16px 22px}
+  .ft{grid-template-columns:1fr 1fr;gap:36px}
+  .ft .news{grid-column:1/-1;justify-self:stretch;text-align:left}
+  .social{justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 
-  <div class="os-frame">
-    <div class="os-titlebar">
-      <div class="os-dots"><span></span><span></span><span></span></div>
-      <div class="os-filename">Hormonié.exe <span class="blink">▮</span></div>
-      <div class="os-clock" id="clock">--:--</div>
+<!-- ===== SVG SYMBOLS: logo "O" + Origine tube (replace tube with real product PNG later if desired) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="tubeBody" x1="0" x2="1">
+      <stop offset="0" stop-color="#6f8a6c"/>
+      <stop offset=".18" stop-color="#9fb497"/>
+      <stop offset=".34" stop-color="#b9c8b2"/>
+      <stop offset=".55" stop-color="#9db195"/>
+      <stop offset=".85" stop-color="#7a957a"/>
+      <stop offset="1" stop-color="#5d775d"/>
+    </linearGradient>
+    <linearGradient id="tubeCap" x1="0" x2="1">
+      <stop offset="0" stop-color="#bfb196"/>
+      <stop offset=".3" stop-color="#efe8da"/>
+      <stop offset=".6" stop-color="#e3d9c6"/>
+      <stop offset="1" stop-color="#b3a586"/>
+    </linearGradient>
+    <linearGradient id="tubeShine" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <symbol id="logoO" viewBox="0 0 140 100">
+    <path d="M30 20 A30 30 0 0 0 30 80 A24 30 0 0 1 30 20Z" fill="currentColor"/>
+    <circle cx="70" cy="50" r="27" fill="none" stroke="currentColor" stroke-width="4.5"/>
+    <path d="M110 20 A30 30 0 0 1 110 80 A24 30 0 0 0 110 20Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="tube" viewBox="0 0 200 540">
+    <!-- crimp seal -->
+    <rect x="14" y="8" width="172" height="34" rx="3" fill="#8ea586"/>
+    <g stroke="#6f8a6c" stroke-width="1.2" opacity=".8">
+      <line x1="20" y1="14" x2="180" y2="14"/><line x1="20" y1="19" x2="180" y2="19"/><line x1="20" y1="24" x2="180" y2="24"/><line x1="20" y1="29" x2="180" y2="29"/><line x1="20" y1="34" x2="180" y2="34"/>
+    </g>
+    <!-- body -->
+    <path d="M16 42 H184 L166 400 Q163 428 136 432 H64 Q37 428 34 400 Z" fill="url(#tubeBody)"/>
+    <path d="M52 42 H82 L74 420 H58 Z" fill="url(#tubeShine)" opacity=".7"/>
+    <!-- label -->
+    <g fill="#1f2c23" text-anchor="middle">
+      <text x="100" y="118" font-family="Italiana, Georgia, serif" font-size="25" letter-spacing="2">HORMONIÉ</text>
+      <line x1="72" y1="134" x2="128" y2="134" stroke="#1f2c23" stroke-width=".8"/>
+      <text x="100" y="196" font-family="Instrument Serif, Georgia, serif" font-size="40" font-style="italic">Origine</text>
+      <text x="100" y="224" font-family="Inter, sans-serif" font-size="10.5" letter-spacing="3">GEL MOUSSANT</text>
+      <text x="100" y="300" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="1.6" opacity=".85">HORMONE-CONSCIOUS</text>
+      <text x="100" y="314" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="1.6" opacity=".85">SKINCARE</text>
+      <text x="100" y="384" font-family="Inter, sans-serif" font-size="9" letter-spacing="1.5">100 ml · 3.38 fl oz</text>
+    </g>
+    <!-- shoulder + cap -->
+    <rect x="58" y="430" width="84" height="12" rx="3" fill="#d6cbb4"/>
+    <rect x="56" y="440" width="88" height="92" rx="10" fill="url(#tubeCap)"/>
+    <g stroke="#b3a586" stroke-width="1" opacity=".5"><line x1="66" y1="448" x2="66" y2="524"/><line x1="134" y1="448" x2="134" y2="524"/></g>
+  </symbol>
+  <symbol id="leaf" viewBox="0 0 100 200">
+    <path d="M50 198 C50 140 50 80 50 4" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M50 30 C20 40 8 80 12 120 C30 100 48 70 50 30Z M50 60 C80 70 92 110 88 150 C70 130 52 100 50 60Z M50 100 C24 110 16 140 20 175 C36 160 48 135 50 100Z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="hdr" id="hdr">
+  <a href="#top" class="hdr-logo wm" aria-label="Hormonié home">H<svg class="o" viewBox="0 0 140 100"><use href="#logoO"/></svg>RMONIÉ</a>
+  <nav class="nav" aria-label="Main">
+    <a href="#origine">Shop</a>
+    <a href="#cycle" class="hide-m">Your cycle</a>
+    <a href="#ritual" class="hide-m">Ritual</a>
+    <a href="#about" class="hide-m">About</a>
+    <button class="ico" id="bagBtn" aria-label="Bag">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="bag-count" id="bagCount">0</span>
+    </button>
+  </nav>
+</header>
+<div class="progress" id="progress"></div>
+
+<main id="top">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-stage">
+    <div class="hero-grain"></div>
+    <div class="hero-moon" id="heroMoon"></div>
+    <svg class="hero-tube" id="heroTube" viewBox="0 0 200 540" aria-label="Origine Gel Moussant tube"><use href="#tube"/></svg>
+    <h1 class="hero-wm wm" id="heroWm" aria-label="Hormonié">H<svg class="o" viewBox="0 0 140 100"><use href="#logoO"/></svg>RMONIÉ</h1>
+    <p class="hero-tag" id="heroTag">Skincare, built for your cycle.</p>
+    <p class="hero-meta" id="heroMeta">Hormone-conscious skincare<br>Made in India</p>
+
+    <div class="hero-statement" id="heroStatement">
+      <h2>Most skincare treats<br>your skin the same every day,<br>yours isn't the same every day.</h2>
+      <p>Gentle, balanced, and made for hormonal skin.</p>
     </div>
-
-    <div class="os-body">
-      <div class="blob" style="width:340px;height:340px;background:var(--pink);top:-120px;left:-100px;"></div>
-      <div class="blob" style="width:280px;height:280px;background:var(--pink);bottom:10%;right:-100px;"></div>
-
-      <section id="hero">
-        <span class="sticker s1">✦ beta energy</span>
-        <span class="sticker s2">shh — not live yet</span>
-        <p class="eyebrow">you weren't supposed to find this page yet</p>
-        <h1>Hormonié is brewing<br/>something for your<br/>hormonal skin era.</h1>
-        <p class="lede">skincare that actually gets it: your skin has moods, and they're not random. we're not live yet — but the inner circle gets in first.</p>
-        <a href="#join" class="btn">peek behind the curtain ↓</a>
-      </section>
-
-      <hr class="divider" />
-
-      <section id="secret">
-        <p class="eyebrow">a note from the lab</p>
-        <h2>ok so here's the tea.</h2>
-        <div class="chatwrap">
-          <div class="bubble">breakouts that show up like clockwork? not a coincidence. your hormones are calling the shots 📅</div>
-          <div class="bubble hot">we're building a line that works <em>with</em> your cycle, not against it.</div>
-          <div class="bubble">still hush-hush. formulas, ingredients, launch date — all locked. but you get to know first.</div>
-        </div>
-        <div class="badges">
-          <span class="badge">cycle-synced ✦</span>
-          <span class="badge">no BS ingredients ✦</span>
-          <span class="badge">made for hormonal skin ✦</span>
-        </div>
-      </section>
-
-      <hr class="divider" />
-
-      <section id="mood">
-        <p class="eyebrow">spin it. we dare you.</p>
-        <h2>how's your skin feeling today?</h2>
-        <div class="moods" id="moodChips" role="group" aria-label="pick a mood"></div>
-        <p class="mood-response" id="moodResponse">no judgment either way.</p>
-      </section>
-
-      <hr class="divider" />
-
-      <section id="join">
-        <p class="eyebrow">the good part</p>
-        <h2>get in before we're even a thing.</h2>
-        <div class="joinpanel">
-          <p class="lede" style="margin-bottom:0;max-width:60ch;">early birds get first access, a launch-day discount, and a front-row seat to the chaos of building this.</p>
-
-          <form class="joinform" id="joinForm" novalidate>
-            <label for="email" style="position:absolute;left:-9999px;">email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
-            <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <button class="btn" type="submit" id="joinBtn">i'm in ►</button>
-          </form>
-          <p class="join-error" id="joinError">that doesn't look like an email — try again?</p>
-          <p class="count-line" id="countLine">early access only — no spam, just skin secrets 💚</p>
-        </div>
-      </section>
+    <div class="mini-cards" id="miniCards">
+      <a href="#origine" class="mini-card">
+        <span class="thumb"><svg viewBox="0 0 200 540"><use href="#tube"/></svg></span>
+        <span><b>Origine</b><small>Gel Moussant · 100 ml</small></span>
+        <span class="arr">→</span>
+      </a>
+      <a href="#ritual" class="mini-card">
+        <span class="thumb"><svg viewBox="0 0 140 100" style="height:26px;color:#efe8da"><use href="#logoO"/></svg></span>
+        <span><b>The Ritual</b><small>Cleanse with your cycle</small></span>
+        <span class="arr">→</span>
+      </a>
     </div>
   </div>
+</section>
 
-  <div class="marquee" aria-hidden="true">
-    <span class="marquee-track">coming soon ✦ hormone-friendly skincare ✦ shhh, don't tell anyone yet ✦ cycle-synced formulas ✦ coming soon ✦ hormone-friendly skincare ✦ shhh, don't tell anyone yet ✦ cycle-synced formulas ✦&nbsp;</span>
+<!-- ===== CYCLE STORY ===== -->
+<div class="story-head" id="cycle">
+  <h2 class="rv">Because your hormones decide<br>what kind of day your skin gets.</h2>
+</div>
+<section class="story" id="story">
+  <div class="story-stage">
+    <div class="story-visual" id="storyVisual">
+      <span class="phase-label" id="phaseLabel">Week 1 · New moon</span>
+      <svg class="leaf" style="left:4%;bottom:6%;width:15%;color:#4d6450;transform:rotate(-14deg)" viewBox="0 0 100 200"><use href="#leaf"/></svg>
+      <svg class="leaf" style="right:5%;bottom:10%;width:11%;color:#4d6450;transform:rotate(18deg)" viewBox="0 0 100 200"><use href="#leaf"/></svg>
+      <div class="moonwrap">
+        <svg viewBox="0 0 200 200" width="100%">
+          <defs>
+            <radialGradient id="moonG" cx=".38" cy=".34" r=".75"><stop offset="0" stop-color="#f6f1e6"/><stop offset=".55" stop-color="#dfe5d4"/><stop offset="1" stop-color="#a9bba3"/></radialGradient>
+            <clipPath id="moonClip"><circle cx="100" cy="100" r="90"/></clipPath>
+          </defs>
+          <circle cx="100" cy="100" r="90" fill="url(#moonG)"/>
+          <g clip-path="url(#moonClip)">
+            <circle id="moonShadow" cx="100" cy="100" r="92" fill="#1f2c23" opacity=".88" style="transition:cx 1.1s cubic-bezier(.6,.1,.2,1)"/>
+          </g>
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#efe8da" stroke-opacity=".25"/>
+        </svg>
+      </div>
+      <div class="plinth"></div>
+      <svg class="stube" viewBox="0 0 200 540"><use href="#tube"/></svg>
+    </div>
+    <div class="story-copy">
+      <div class="phase on" data-moon="100" data-bg="radial-gradient(80% 80% at 50% 40%,#3c5242 0%,#22302700 70%),linear-gradient(180deg,#263529,#18221b)" data-label="Week 1 · New moon">
+        <span class="wk">Menstrual week</span>
+        <h3>Your period week</h3>
+        <p>dulls everything down. Skin feels dry, sensitive and a little tired of being touched.</p>
+      </div>
+      <div class="phase" data-moon="-62" data-bg="radial-gradient(80% 80% at 50% 40%,#6f8a6c 0%,#3e554300 70%),linear-gradient(180deg,#3e5543,#25342a)" data-label="Week 2 · Waxing">
+        <span class="wk">Follicular week</span>
+        <h3>And then, the glow.</h3>
+        <p>Oestrogen rises and skin bounces back — the week it just needs to be kept clean, not stripped.</p>
+      </div>
+      <div class="phase" data-moon="-260" data-bg="radial-gradient(80% 80% at 50% 40%,#b9c8b2 0%,#8fa68a00 70%),linear-gradient(180deg,#8fa68a,#4d6450)" data-label="Week 3 · Full moon">
+        <span class="wk">Ovulation</span>
+        <h3>Peak week.</h3>
+        <p>Skin is at its brightest — but a little more oil creeps in by the evening.</p>
+      </div>
+      <div class="phase" data-moon="62" data-bg="radial-gradient(80% 80% at 50% 40%,#5a6f55 0%,#33483a00 70%),linear-gradient(180deg,#33483a,#1c271f)" data-label="Week 4 · Waning">
+        <span class="wk">Luteal week</span>
+        <h3>And right on schedule,</h3>
+        <p>progesterone kicks in, pores get busy and the chin breakouts show up like clockwork.</p>
+      </div>
+      <div class="bars"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+    </div>
   </div>
+</section>
 
-  <footer>Hormonié © 2026. still a secret. terms will exist eventually.</footer>
+<!-- ===== SEASONS ===== -->
+<div class="season-head" id="seasons">
+  <h2 class="rv">And your weather<br>has a say in it too.</h2>
+</div>
+<section class="season" id="season">
+  <div class="season-stage">
+    <div class="scene" id="scene">
+      <div class="sky winter on" data-s="0"></div>
+      <div class="sky monsoon" data-s="1"></div>
+      <div class="sky summer" data-s="2"></div>
+      <div class="sky spring" data-s="3"></div>
+      <span class="season-label" id="seasonLabel">Winter · Delhi</span>
+      <svg class="world" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <radialGradient id="sunG"><stop offset="0" stop-color="#fffaf0"/><stop offset=".4" stop-color="#ffe9b8" stop-opacity=".9"/><stop offset="1" stop-color="#ffe9b8" stop-opacity="0"/></radialGradient>
+          <linearGradient id="barkG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4036"/><stop offset="1" stop-color="#2a241e"/></linearGradient>
+        </defs>
+        <circle class="layer" data-only="2" cx="640" cy="120" r="210" fill="url(#sunG)" opacity="0"/>
+        <path d="M0 560 Q140 470 280 520 T560 500 T800 470 V800 H0Z" fill="#000" opacity=".08"/>
+        <path d="M-40 560 C40 520 110 460 130 360 C150 250 110 170 190 110 C280 45 430 70 530 95 C640 122 710 80 840 30" stroke="url(#barkG)" stroke-width="58" fill="none" stroke-linecap="round"/>
+        <path d="M150 130 C120 220 160 300 120 380" stroke="#2a241e" stroke-width="3" fill="none" opacity=".5"/>
+        <path d="M300 70 C380 66 460 84 540 104" stroke="#6b5d4e" stroke-width="3" fill="none" opacity=".6"/>
+        <path d="M-40 720 C120 668 280 690 420 682 C560 672 690 705 840 655" stroke="url(#barkG)" stroke-width="74" fill="none" stroke-linecap="round"/>
+        <path d="M60 700 C200 670 300 684 420 676" stroke="#6b5d4e" stroke-width="3" fill="none" opacity=".5"/>
+        <g class="layer" id="moss" opacity=".7" fill="none" stroke-linecap="round">
+          <path d="M-40 528 C40 488 100 430 118 340 C136 240 104 168 180 100 C270 36 430 62 530 86 C640 112 710 70 840 20" stroke="#6f8a4f" stroke-width="9" stroke-dasharray="3 9 22 6 48 14 9 7 70 10"/>
+          <path d="M-40 688 C120 636 280 656 420 648 C560 638 690 670 840 620" stroke="#6f8a4f" stroke-width="10" stroke-dasharray="60 8 4 12 30 6 90 14 8 9"/>
+        </g>
+        <g class="layer" data-only="0" opacity="1" fill="none" stroke="#f7f9f8" stroke-linecap="round">
+          <path d="M-40 520 C40 480 100 424 116 336 C134 236 102 164 178 96 C268 32 430 58 530 82 C640 108 710 66 840 16" stroke-width="13"/>
+          <path d="M-40 680 C120 628 280 648 420 640 C560 630 690 662 840 612" stroke-width="15"/>
+        </g>
+        <use href="#tube" x="335" y="272" width="140" height="378"/>
+        <ellipse cx="405" cy="650" rx="56" ry="7" fill="#000" opacity=".25"/>
+        <g class="layer" data-only="0" opacity="1" fill="#fff">
+          <rect x="350" y="290" width="110" height="10" rx="5" opacity=".55"/>
+          <circle cx="362" cy="340" r="2" opacity=".7"/><circle cx="450" cy="380" r="1.6" opacity=".7"/><circle cx="440" cy="300" r="2.2" opacity=".7"/>
+        </g>
+        <g class="layer" data-only="1" opacity="0" fill="#e9f0ee">
+          <ellipse cx="365" cy="330" rx="3" ry="4" opacity=".8"/><ellipse cx="420" cy="360" rx="2.5" ry="3.5" opacity=".7"/><ellipse cx="448" cy="420" rx="3.5" ry="5" opacity=".8"/>
+          <ellipse cx="380" cy="470" rx="2.5" ry="3.5" opacity=".7"/><ellipse cx="436" cy="520" rx="3" ry="4.2" opacity=".75"/><ellipse cx="370" cy="560" rx="2" ry="3" opacity=".7"/>
+          <ellipse cx="458" cy="300" rx="2" ry="3" opacity=".7"/><ellipse cx="398" cy="610" rx="3" ry="4" opacity=".7"/>
+        </g>
+      </svg>
+      <canvas id="weather"></canvas>
+      <div class="flash" id="flash"></div>
+    </div>
+    <div class="season-copy">
+      <div class="sz on" data-label="Winter · Delhi"><span class="wk">Winter</span><h3>A Delhi winter</h3><p>pulls every bit of moisture out. By noon, skin feels tight, flaky and easily irritated.</p></div>
+      <div class="sz" data-label="Monsoon · Mumbai"><span class="wk">Monsoon</span><h3>And in Mumbai,</h3><p>one downpour and the humidity moves in. Pores feel congested and skin turns shiny by lunch.</p></div>
+      <div class="sz" data-label="Summer · Chennai"><span class="wk">Summer</span><h3>A Chennai summer</h3><p>means sweat, sunscreen and oil all sitting in your pores by evening, right when breakouts love to show up.</p></div>
+      <div class="sz" data-label="In-between · Bengaluru"><span class="wk">In-between</span><h3>Then Bengaluru's in-between,</h3><p>cool mornings, warm afternoons. Your skin can't decide what it wants either.</p></div>
+      <div class="sbars"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANIFESTO ===== -->
+<section class="manifesto" id="about">
+  <div class="arch">
+    <div class="sun"></div>
+    <svg class="leafs" viewBox="0 0 400 220" preserveAspectRatio="none"><path d="M0 220 V150 Q60 90 120 130 T240 120 T400 110 V220Z" fill="#8fa68a"/><path d="M0 220 V180 Q80 140 170 170 T400 160 V220Z" fill="#4d6450"/></svg>
+  </div>
+  <svg class="mtube" viewBox="0 0 200 540"><use href="#tube"/></svg>
+  <div class="copy rv">
+    <p class="kick">So we made one that's kind to<br>every week, and every weather</p>
+    <h2>The first<br>Hormone-<br>conscious<sup>™</sup> cleanser</h2>
+  </div>
+  <p class="side rv">Built for your cycle,<br>not just your skin type.</p>
+</section>
+
+<!-- ===== PRODUCT SPOTLIGHT ===== -->
+<section class="spot" id="origine">
+  <div class="spot-wrap">
+    <div class="thumbs" role="tablist">
+      <button class="on" data-view="0" aria-label="Tube view"><svg viewBox="-60 -20 320 580"><use href="#tube"/></svg></button>
+      <button data-view="1" aria-label="Texture view"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="18" fill="#efe8da"/><circle cx="20" cy="22" r="5" fill="#fff"/><circle cx="31" cy="28" r="6" fill="#fff"/></svg></button>
+    </div>
+    <div class="spot-row">
+      <div class="l rv"><h2>Gentle foam</h2><p>Cleanses, calms, respects your barrier</p></div>
+      <div class="card-col">
+        <span class="chip">Origine · Gel Moussant</span>
+        <div class="card">
+          <div class="view" data-v="0"><svg class="ct" viewBox="0 0 200 540"><use href="#tube"/></svg></div>
+          <div class="view off" data-v="1"><div class="foam"></div></div>
+          <div class="shadow"></div>
+        </div>
+      </div>
+      <div class="r rv"><h2>every week</h2><p>of your cycle, in one wash.</p></div>
+    </div>
+    <div class="spot-foot">
+      <p class="l rv">Best for: hormonal, breakout-prone and sensitive skin. Morning and night, period week to PMS week.</p>
+      <div class="r rv">
+        <!-- EDIT: set the real price in data-price and the button label -->
+        <button class="btn" id="addBag" data-price="">Add to bag</button>
+        <span class="spec">100 ml · Gel Moussant</span>
+        <small>Hormone-conscious skincare</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RITUAL ===== -->
+<section class="ritual" id="ritual">
+  <div class="ritual-in">
+    <h2 class="rv">Your skin has moods.<br><em>They're not random.</em></h2>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><h4>Wet</h4><p>Splash your face with lukewarm water — never hot, especially in period week when skin is most reactive.</p></div>
+      <div class="step rv"><span class="n">02</span><h4>Foam</h4><p>Work a pea-sized amount of Origine between damp palms into a soft lather. Massage for 30–60 seconds.</p></div>
+      <div class="step rv"><span class="n">03</span><h4>Rinse</h4><p>Rinse clean and pat dry. Skin should feel comfortable — clean, not tight. Follow with your usual routine.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSER ===== -->
+<section class="closer">
+  <p class="lt rv">Skin gets a one-size routine.<br>Your hormones never got the memo. We're changing that.</p>
+  <div class="rt rv">
+    <h2>How's your skin<br>feeling today?</h2>
+    <a href="#origine" class="btn">Meet Origine</a>
+  </div>
+  <div class="big wm" aria-hidden="true">H<svg class="o" viewBox="0 0 140 100"><use href="#logoO"/></svg>RMONIÉ</div>
+  <svg class="ctube" viewBox="0 0 200 540"><use href="#tube"/></svg>
+</section>
+</main>
+
+<footer>
+  <div class="ft">
+    <div>
+      <h5>Quick Links</h5>
+      <ul><li><a href="#origine">Shop</a></li><li><a href="#cycle">Your cycle</a></li><li><a href="#ritual">Ritual</a></li><li><a href="mailto:contact@hormonieindia.com">Contact</a></li></ul>
+    </div>
+    <div>
+      <h5>Policies</h5>
+      <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Shipping &amp; Returns</a></li></ul>
+    </div>
+    <div class="news">
+      <div class="social">
+        <a href="#" aria-label="Instagram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"/><path d="M9 9.5c.3 2 2.2 4.2 4.6 4.9l1.1-1.1 1.6.8c-.2 1-1 1.6-2 1.6-3 0-6.2-3.2-6.2-6.2 0-1 .6-1.8 1.6-2l.8 1.6L9 9.5z"/></svg></a>
+      </div>
+      <p>Be the first to hear about new launches, cycle-care notes and members-only offers.</p>
+      <form id="newsForm">
+        <input type="email" required placeholder="Enter email" aria-label="Email address">
+        <button type="submit">Subscribe</button>
+      </form>
+      <label><input type="checkbox" required> I agree to receive news, launches and promotional emails from Hormonié in accordance with the Privacy Policy.</label>
+      <p class="ok" id="newsOk">You're on the list. ✦</p>
+    </div>
+  </div>
+  <div class="fb"><span>© HORMONIÉ 2026</span><span>contact@hormonieindia.com · Response &lt; 48h</span></div>
+</footer>
+
+<div class="toast" id="toast">Added to bag — Origine Gel Moussant</div>
 
 <script>
-  const DESTINATION_EMAIL = "contact@hormonieindia.com";
+(function(){
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const hdr=$('#hdr'), prog=$('#progress');
+  const hero=$('#hero'), wm=$('#heroWm'), tube=$('#heroTube'), moon=$('#heroMoon');
+  const tag=$('#heroTag'), meta=$('#heroMeta'), stmt=$('#heroStatement'), minis=$('#miniCards');
+  const story=$('#story'), phases=$$('.phase'), bars=$$('.bars i');
+  const visual=$('#storyVisual'), shadow=$('#moonShadow'), label=$('#phaseLabel');
+  let cur=-1;
+  const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 
-  function tickClock(){
-    const el = document.getElementById('clock');
-    if(!el) return;
-    const d = new Date();
-    el.textContent = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+  function setPhase(i){
+    if(i===cur) return; cur=i;
+    phases.forEach((p,k)=>p.classList.toggle('on',k===i));
+    const p=phases[i];
+    visual.style.background=p.dataset.bg;
+    shadow.setAttribute('cx',100+parseFloat(p.dataset.moon));
+    label.textContent=p.dataset.label;
   }
-  tickClock();
-  setInterval(tickClock, 15000);
 
-  const MOODS = [
-    { label: "glowing ✨", reply: "same. keep doing whatever you're doing." },
-    { label: "surviving 😮‍💨", reply: "valid. showing up still counts." },
-    { label: "breaking out 😤", reply: "hi, hormones. we see you. we're working on this." },
-    { label: "no clue tbh 🤷", reply: "couldn't relate more — that's kind of our whole thing." },
-    { label: "main character 💅", reply: "as you should be." }
-  ];
-  (function mountMoods(){
-    const wrap = document.getElementById('moodChips');
-    const out = document.getElementById('moodResponse');
-    if(!wrap) return;
-    MOODS.forEach((m) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'mood-chip';
-      b.textContent = m.label;
-      b.setAttribute('aria-pressed', 'false');
-      b.addEventListener('click', () => {
-        wrap.querySelectorAll('.mood-chip').forEach(c => c.setAttribute('aria-pressed','false'));
-        b.setAttribute('aria-pressed','true');
-        out.textContent = m.reply;
-      });
-      wrap.appendChild(b);
+  function onScroll(){
+    const y=scrollY, vh=innerHeight;
+    prog.style.width=(y/(document.documentElement.scrollHeight-vh)*100)+'%';
+    // hero: wordmark lifts & shrinks into header, statement fades in
+    const hp=clamp(y/(hero.offsetHeight-vh));
+    wm.style.transform=`translateX(-50%) translateY(${-hp*40}vh) scale(${1-hp*.75})`;
+    wm.style.opacity=1-clamp((hp-.35)/.25);
+    tube.style.transform=`translateX(calc(-50% - ${hp*14}vw)) rotate(${-8+hp*14}deg) translateY(${-hp*6}vh)`;
+    moon.style.transform=`translate(calc(-50% - ${hp*14}vw),-50%) scale(${1+hp*.15})`;
+    tag.style.opacity=meta.style.opacity=1-clamp(hp/.3);
+    const so=clamp((hp-.45)/.3);
+    stmt.style.opacity=so; minis.style.opacity=so;
+    if(innerWidth<900){tube.style.opacity=moon.style.opacity=1-so*.8;}else{tube.style.opacity=moon.style.opacity=1;}
+    minis.style.pointerEvents=so>.5?'auto':'none';
+    hdr.classList.toggle('scrolled',hp>.5||y>hero.offsetHeight);
+    // story
+    const r=story.getBoundingClientRect();
+    const sp=clamp(-r.top/(story.offsetHeight-vh));
+    const n=phases.length;
+    setPhase(Math.min(n-1,Math.floor(sp*n)));
+    bars.forEach((b,k)=>b.style.transform=`scaleX(${clamp(sp*n-k)})`);
+  }
+  // ---------- SEASONS ----------
+  const season=$('#season'), szs=$$('.sz'), sbars=$$('.sbars i'), skies=$$('.scene .sky');
+  const sLabel=$('#seasonLabel'), moss=$('#moss'), flash=$('#flash');
+  const cv=$('#weather'), cx=cv.getContext('2d');
+  let mode=0, sCur=-1, parts=[], W=0, H=0, visible=false;
+  const dpr=Math.min(2,devicePixelRatio||1);
+  const rand=(a,b)=>a+Math.random()*(b-a);
+  function sizeCv(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+  function spawn(m,initial){
+    const y0=initial?rand(0,H):null;
+    if(m===0) return {m,x:rand(0,W),y:y0??rand(-20,-5),r:rand(1,3.4),vy:rand(.4,1.2),vx:rand(-.3,.3),ph:rand(0,6.28)};
+    if(m===1) return {m,x:rand(-50,W),y:y0??rand(-60,-10),l:rand(14,28),vy:rand(13,19),vx:3};
+    if(m===2) return {m,x:rand(0,W),y:y0??H+10,r:rand(.8,2.4),vy:-rand(.15,.5),vx:rand(-.15,.15),ph:rand(0,6.28)};
+    return {m,x:rand(0,W),y:y0??-20,s:rand(5,10),vy:rand(.6,1.4),vx:rand(.2,.9),rot:rand(0,6.28),vr:rand(-.04,.04),ph:rand(0,6.28),c:['#c7a35a','#9b7a3f','#7f9a5a','#b48a4a'][Math.floor(Math.random()*4)]};
+  }
+  const COUNT=[150,220,60,34];
+  function setSeason(i){
+    if(i===sCur) return; sCur=i; mode=i;
+    szs.forEach((s,k)=>s.classList.toggle('on',k===i));
+    skies.forEach(s=>s.classList.toggle('on',+s.dataset.s===i));
+    sLabel.textContent=szs[i].dataset.label;
+    $$('.scene .layer[data-only]').forEach(l=>l.setAttribute('opacity',+l.dataset.only===i?1:0));
+    moss.setAttribute('opacity',[.35,.95,.4,.8][i]);
+    // fill the sky quickly on a new season
+    const have=parts.filter(p=>p.m===i).length;
+    for(let k=have;k<COUNT[i]*.6;k++) parts.push(spawn(i,true));
+  }
+  function tick(){
+    requestAnimationFrame(tick);
+    if(!visible||!W) return;
+    cx.clearRect(0,0,W,H);
+    const live=parts.filter(p=>p.m===mode).length;
+    for(let k=0;k<Math.min(6,COUNT[mode]-live);k++) parts.push(spawn(mode,false));
+    parts=parts.filter(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.m===0){p.ph+=.02;p.x+=Math.sin(p.ph)*.4;cx.fillStyle='rgba(255,255,255,.9)';cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill();}
+      else if(p.m===1){cx.strokeStyle='rgba(220,232,228,.55)';cx.lineWidth=1.1;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(p.x-p.vx*1.6,p.y-p.l);cx.stroke();
+        if(p.y>H*.86&&Math.random()<.05){cx.strokeStyle='rgba(220,232,228,.4)';cx.beginPath();cx.ellipse(p.x,p.y,6,1.6,0,0,7);cx.stroke();return false;}}
+      else if(p.m===2){p.ph+=.015;p.x+=Math.sin(p.ph)*.3;const a=.35+Math.sin(p.ph*2)*.25;cx.fillStyle=`rgba(255,244,214,${a})`;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill();}
+      else {p.ph+=.03;p.rot+=p.vr;p.x+=Math.sin(p.ph)*1.1;cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.scale(1,Math.abs(Math.cos(p.ph*.7))*.7+.3);cx.fillStyle=p.c;cx.beginPath();cx.ellipse(0,0,p.s,p.s*.45,0,0,7);cx.fill();cx.restore();}
+      const out=p.y>H+30||p.y<-80||p.x>W+60;
+      return !out && !(p.m!==mode && Math.random()<.02);
     });
-  })();
+    if(mode===1&&Math.random()<.003){flash.style.transition='none';flash.style.opacity=.55;requestAnimationFrame(()=>{flash.style.transition='opacity .9s';flash.style.opacity=0});}
+  }
+  addEventListener('resize',sizeCv); sizeCv();
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting; if(visible) sizeCv();}).observe(cv);
+  setSeason(0); requestAnimationFrame(tick);
+  function onSeasonScroll(){
+    const vh=innerHeight, r=season.getBoundingClientRect();
+    const sp=clamp(-r.top/(season.offsetHeight-vh)), n=szs.length;
+    setSeason(Math.min(n-1,Math.floor(sp*n)));
+    sbars.forEach((b,k)=>b.style.transform=`scaleX(${clamp(sp*n-k)})`);
+  }
+  addEventListener('scroll',onSeasonScroll,{passive:true}); onSeasonScroll();
 
-  (function mountJoin(){
-    const form = document.getElementById('joinForm');
-    if(!form) return;
-    const emailInput = document.getElementById('email');
-    const btn = document.getElementById('joinBtn');
-    const errorEl = document.getElementById('joinError');
-    const countLine = document.getElementById('countLine');
-    const panel = form.closest('.joinpanel');
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  setPhase(0); onScroll();
 
-    function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+  $$('.rv').forEach(el=>io.observe(el));
 
-    function showSuccess(){
-      form.style.display = 'none';
-      errorEl.style.display = 'none';
-      countLine.style.display = 'none';
-      const msg = document.createElement('p');
-      msg.className = 'lede success-msg';
-      msg.textContent = 'tucked in. see you at launch 🌙';
-      panel.appendChild(msg);
-    }
+  // product views
+  $$('.thumbs button').forEach(b=>b.addEventListener('click',()=>{
+    $$('.thumbs button').forEach(x=>x.classList.toggle('on',x===b));
+    $$('.card .view').forEach(v=>v.classList.toggle('off',v.dataset.v!==b.dataset.view));
+  }));
 
-    try { if (sessionStorage.getItem('hormine_joined') === '1') showSuccess(); } catch (e) {}
+  // bag
+  let bag=0; const toast=$('#toast');
+  try{bag=+localStorage.getItem('hm_bag')||0}catch(e){}
+  const paint=()=>{const c=$('#bagCount');c.textContent=bag;c.classList.toggle('on',bag>0)};paint();
+  $('#addBag').addEventListener('click',()=>{
+    bag++; try{localStorage.setItem('hm_bag',bag)}catch(e){} paint();
+    toast.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>toast.classList.remove('on'),2200);
+  });
+  $('#bagBtn').addEventListener('click',()=>location.hash='origine');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = emailInput.value.trim();
-      if (form.company.value) return;
-
-      if (!isValidEmail(email)) {
-        errorEl.style.display = 'block';
-        return;
-      }
-      errorEl.style.display = 'none';
-      btn.disabled = true;
-      btn.textContent = 'sending...';
-
-      try {
-        await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(DESTINATION_EMAIL), {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            email: email,
-            _subject: 'new Hormonié early-access signup',
-            _template: 'table'
-          })
-        });
-      } catch (err) {}
-
-      try { sessionStorage.setItem('hormine_joined', '1'); } catch (e) {}
-      btn.disabled = false;
-      btn.textContent = "i'm in ►";
-      showSuccess();
-    });
-  })();
+  // newsletter → opens mail to contact@ (swap for Formspree/Shopify endpoint when ready)
+  $('#newsForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const em=e.target.querySelector('input[type=email]').value;
+    window.location.href='mailto:contact@hormonieindia.com?subject='+encodeURIComponent('Hormonié newsletter signup')+'&body='+encodeURIComponent('Please add me: '+em);
+    $('#newsOk').style.display='block'; e.target.reset();
+  });
+})();
 </script>
 </body>
 </html>
