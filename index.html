@@ -207,6 +207,19 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
 .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:var(--cream);color:var(--forest);padding:12px 20px;font-size:14px;z-index:70;transition:.35s;pointer-events:none}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
+/* ---------- CUSTOM CURSOR (Artisun-style glowing dot) ---------- */
+.cursor{display:none}
+@media (hover:hover) and (pointer:fine){
+  html,body,a,button,input,label{cursor:none}
+  .cursor{display:block;position:fixed;top:0;left:0;width:16px;height:16px;border-radius:50%;pointer-events:none;z-index:9999;
+    background:var(--cream);
+    box-shadow:0 0 16px 4px rgba(239,232,218,.95),0 0 34px 8px rgba(143,166,138,.8);
+    transform:translate(-50%,-50%) translate(-100px,-100px);will-change:transform;
+    transition:width .25s,height .25s,opacity .3s,background .25s;opacity:0}
+  .cursor.on{opacity:1}
+  .cursor.big{width:34px;height:34px;background:rgba(239,232,218,.25);box-shadow:0 0 0 1.5px var(--cream),0 0 30px 6px rgba(143,166,138,.6)}
+}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
 .rv.in{opacity:1;transform:none}
@@ -583,6 +596,7 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
   <div class="fb"><span>© HORMONIÉ 2026</span><span>contact@hormonieindia.com · Response &lt; 48h</span></div>
 </footer>
 
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="toast" id="toast">Added to bag — Origine Gel Moussant</div>
 
 <script>
@@ -627,6 +641,16 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     setPhase(Math.min(n-1,Math.floor(sp*n)));
     bars.forEach((b,k)=>b.style.transform=`scaleX(${clamp(sp*n-k)})`);
   }
+  // ---------- CURSOR ----------
+  const cur$=$('#cursor');
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    let mx=-100,my=-100,cxp=-100,cyp=-100;
+    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur$.classList.add('on')},{passive:true});
+    document.addEventListener('mouseleave',()=>cur$.classList.remove('on'));
+    document.addEventListener('mouseover',e=>cur$.classList.toggle('big',!!e.target.closest('a,button,input,label,.mini-card')));
+    (function loop(){cxp+=(mx-cxp)*.35;cyp+=(my-cyp)*.35;cur$.style.transform=`translate(-50%,-50%) translate(${cxp}px,${cyp}px)`;requestAnimationFrame(loop)})();
+  }
+
   // ---------- SEASONS ----------
   const season=$('#season'), szs=$$('.sz'), sbars=$$('.sbars i'), skies=$$('.scene .sky');
   const sLabel=$('#seasonLabel'), moss=$('#moss'), flash=$('#flash');
