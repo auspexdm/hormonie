@@ -579,6 +579,101 @@ h4{font-weight:500!important;letter-spacing:0}
   .season .sbars{bottom:112px}
   .sz{top:36%}
 }
+
+/* ---------- ELEGANT PASS ---------- */
+body{font-size:17px;line-height:1.6}
+h2,h3{letter-spacing:-.015em}
+
+/* hero: name sits clear of the panel and tube */
+.hero-moon{top:auto;bottom:0;height:58vh;width:min(62vh,48vw);aspect-ratio:auto;transform:translateX(-50%);opacity:1}
+.hero-tube{bottom:-7vh;height:66vh}
+.hero-tag{font-size:19px;left:40px;bottom:36px;max-width:260px;line-height:1.4}
+.hero-meta{font-size:12px;letter-spacing:.2em;right:40px;bottom:36px;line-height:1.7}
+.hero-statement h2{font-size:clamp(28px,3vw,46px)}
+.hero-statement p{font-size:16px;margin-top:16px}
+.mini-card b{font-size:16px}
+.mini-card small{font-size:12px}
+@keyframes rise{from{opacity:0}}
+.hero-wm{animation:rise 1.1s ease backwards}
+.hero-tube,.hero-moon{animation:rise 1.1s .25s ease backwards}
+@media (min-width:901px){
+  .hero-wm{top:10vh;font-size:min(13.5vw,25vh)}
+}
+
+.xp-head{max-width:420px}
+@media (min-width:901px){.xp-stack{top:50%}.xp-col{top:47%;height:54vh}}
+
+/* navigation and labels */
+.nav a,.nav button{font-size:13px;letter-spacing:.14em}
+.hdr-logo{font-size:27px}
+.xp-head span,.tl-card .wk,.sz .wk,.chip,.season-label,.kick-label{font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.kick-label{display:block;margin-bottom:22px;opacity:.65}
+.kick-label::after{content:"";display:block;width:36px;height:1px;background:currentColor;margin:18px auto 0}
+.tl-node span{font-size:12px;letter-spacing:.14em;top:-30px}
+.tl-card figcaption,.skin-tag{font-size:10px}
+.btn{font-size:12px;letter-spacing:.18em;padding:17px 34px}
+
+/* headlines */
+.story-head,.season-head{padding:120px 24px 100px}
+.story-head h2,.season-head h2{font-size:clamp(32px,3.6vw,54px)}
+.xp-head h2{font-size:clamp(28px,2.9vw,42px)}
+.sz h3,.tl-card h3{font-size:clamp(30px,3vw,44px);margin:12px 0 14px}
+.manifesto h2{font-size:clamp(42px,5.2vw,80px)}
+.manifesto .kick{font-size:18px}
+.spot-row h2{font-size:clamp(40px,5vw,76px)}
+.ritual h2,.closer .rt h2{font-size:clamp(34px,3.8vw,56px)}
+
+/* body copy */
+.tl-card p,.sz p{font-size:17px;line-height:1.7;max-width:380px}
+.xp-col b{font-size:18px}
+.xp-col small{font-size:14px}
+.spot-row .l p,.spot-row .r p,.spot-foot .l,.step p,.closer .lt{font-size:17px;line-height:1.7}
+.spec{font-size:17px}
+.spot-foot small{font-size:14px}
+.step h4{font-size:20px}
+.step .n{font-size:13px}
+.claims li{font-size:17px}
+.hs b{font-size:12px;line-height:26px;top:-13px;letter-spacing:.06em;padding:0 11px}
+.ft h5{font-size:15px;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
+.ft ul,.news p{font-size:16px}
+.fb{font-size:12px}
+
+/* popup copy */
+.pop b{font-size:22px;font-weight:400}
+.pop small{font-size:14px}
+.pop .btn{font-size:12px;padding:13px 22px}
+
+/* elegant motion */
+.rv{transition:opacity 1.2s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tl-card{transition:opacity .8s ease}
+.skin-pic{transition:opacity 1.2s ease}
+a,.btn{transition:opacity .3s,background .3s,color .3s}
+
+@media (max-width:900px){
+  body{font-size:16px}
+  .hero-wm{top:13vh}
+  .hero-moon{height:50vh;width:72vw}
+  .hero-tube{height:56vh;bottom:-6vh}
+  .hero-tag{left:0;right:0;bottom:auto;max-width:none;top:calc(13vh + 18vw);font-size:17px}
+  .nav a,.nav button{font-size:12px}
+  .story-head,.season-head{padding:84px 20px 64px}
+  .story-head h2,.season-head h2{font-size:30px}
+  .xp-head h2{font-size:26px}
+  .xp-col b{font-size:15px}
+  .sz h3{font-size:28px}
+  .tl-card h3{font-size:24px;margin:6px 0}
+  .tl-card p{font-size:15px;line-height:1.55}
+  .sz p{font-size:16px}
+  .tl-card figure{height:37vh}
+  .manifesto h2{font-size:38px}
+  .spot-row h2{font-size:40px}
+  .ritual h2,.closer .rt h2{font-size:32px}
+  .step p,.spot-foot .l,.closer .lt{font-size:16px}
+  .pop b{font-size:18px}
+  .pop small{font-size:12px}
+  .pop .btn{font-size:10px;padding:11px 12px}
+  .hs b{font-size:11px;line-height:22px;top:-11px;padding:0 8px}
+}
 </style>
 </head>
 <body>
@@ -658,6 +753,7 @@ h4{font-weight:500!important;letter-spacing:0}
 
 <!-- ===== WEEK TIMELINE ===== -->
 <div class="story-head" id="cycle">
+  <span class="kick-label rv">Your cycle</span>
   <h2 class="rv">Because your hormones decide<br>what kind of day your skin gets.</h2>
 </div>
 <section class="tl" id="story">
@@ -686,6 +782,7 @@ h4{font-weight:500!important;letter-spacing:0}
 
 <!-- ===== SKIN TYPES ===== -->
 <div class="season-head" id="skin">
+  <span class="kick-label rv">Your skin</span>
   <h2 class="rv">And every skin type<br>starts somewhere different.</h2>
 </div>
 <section class="season" id="season">
@@ -836,7 +933,7 @@ h4{font-weight:500!important;letter-spacing:0}
     wm.style.transform=`translateX(-50%) translateY(${-hp*40}vh) scale(${1-hp*.75})`;
     wm.style.opacity=1-clamp((hp-.35)/.25);
     tube.style.transform=`translateX(calc(-50% - ${hp*20}vw)) rotate(${-8+hp*14}deg) translateY(${-hp*6}vh)`;
-    moon.style.transform=`translate(calc(-50% - ${hp*20}vw),-50%) scale(${1+hp*.15})`;
+    moon.style.transform=`translateX(calc(-50% - ${hp*20}vw))`;
     tag.style.opacity=meta.style.opacity=1-clamp(hp/.3);
     const so=clamp((hp-.45)/.3);
     stmt.style.opacity=so; minis.style.opacity=so;
