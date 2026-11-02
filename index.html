@@ -16,7 +16,9 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Origine Gel Moussant","brand":{"@type":"Brand","name":"Hormonié"},"description":"A gentle foaming cleanser for hormonal, breakout-prone and sensitive skin. 100 ml.","image":"https://www.hormonieindia.com/assets/origine-tube.webp"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/origine-tube.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&text=HRMONI%C3%89&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#16201a;
@@ -58,15 +60,14 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .wm .o{height:.7em;width:auto;margin:0 -.04em;position:relative;top:-.01em}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;height:200vh}
+.hero{position:relative;height:165vh}
 .hero-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:
   radial-gradient(60% 70% at 55% 62%, #6f8a6c 0%, #3e5543 38%, #1f2c23 72%, #121a15 100%)}
-.hero-grain{position:absolute;inset:0;opacity:.18;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-.hero-wm{position:absolute;left:50%;top:7vh;transform:translateX(-50%);font-size:min(15.5vw,240px);color:var(--cream);white-space:nowrap;z-index:3;transform-origin:50% 0;will-change:transform}
+.hero-wm{position:absolute;left:50%;top:7vh;transform:translateX(-50%);font-size:min(15.5vw,240px);color:var(--cream);white-space:nowrap;z-index:3;transform-origin:50% 0;}
 .hero-moon{position:absolute;left:50%;top:54%;width:min(64vh,62vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
   background:radial-gradient(circle at 38% 34%, #f3eee2 0%, #dfe5d4 30%, #b4c4ab 62%, #8fa68a 100%);box-shadow:0 0 120px 30px rgba(169,187,163,.25), inset -40px -50px 90px rgba(31,44,35,.35);z-index:1}
 .hero-moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 70% 70%,rgba(47,66,53,.18) 0 6%,transparent 7%),radial-gradient(circle at 30% 64%,rgba(47,66,53,.12) 0 4%,transparent 5%),radial-gradient(circle at 60% 30%,rgba(47,66,53,.10) 0 3%,transparent 4%)}
-.hero-tube{position:absolute;left:50%;bottom:-4vh;height:78vh;transform:translateX(-50%) rotate(-8deg);z-index:2;filter:drop-shadow(0 40px 50px rgba(0,0,0,.45));will-change:transform}
+.hero-tube{position:absolute;left:50%;bottom:-4vh;height:78vh;transform:translateX(-50%) rotate(-8deg);z-index:2;filter:drop-shadow(0 40px 50px rgba(0,0,0,.45));}
 .hero-tag{position:absolute;left:28px;bottom:34px;z-index:4;font-family:var(--serif);font-size:clamp(20px,2vw,28px);line-height:1.15;max-width:280px}
 .hero-meta{position:absolute;right:28px;bottom:34px;z-index:4;text-align:right;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
 .hero-statement{position:absolute;right:5vw;top:50%;transform:translateY(-50%);text-align:right;z-index:4;opacity:0;transition:opacity .2s linear}
@@ -81,7 +82,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .mini-card .arr{margin-left:auto;opacity:.7}
 
 /* ---------- INGREDIENTS (exploded product) ---------- */
-.xp{position:relative;height:420vh}
+.xp{position:relative;height:290vh}
 .xp-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:
   radial-gradient(38% 20% at 16% 78%,rgba(239,232,218,.75),transparent 70%),
   radial-gradient(30% 16% at 86% 64%,rgba(239,232,218,.55),transparent 70%),
@@ -90,7 +91,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .xp-head span{font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 .xp-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,46px);line-height:1.04;margin-top:10px}
 .xp-stack{position:absolute;left:50%;top:50%;height:58vh;aspect-ratio:238/540;transform:translate(-50%,-50%);z-index:2}
-.xp-slice{position:absolute;left:0;width:100%;overflow:visible;filter:drop-shadow(0 16px 16px rgba(22,32,26,.28));will-change:transform}
+.xp-slice{position:absolute;left:0;width:100%;overflow:visible;filter:drop-shadow(0 16px 16px rgba(22,32,26,.28));}
 .xp-col{position:absolute;top:50%;transform:translateY(-50%);height:66vh;display:flex;flex-direction:column;justify-content:space-between;list-style:none;z-index:3;width:min(26vw,310px)}
 .xp-col.l{right:calc(50% + 15vh + 34px);text-align:right}
 .xp-col.r{left:calc(50% + 15vh + 34px)}
@@ -105,9 +106,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 /* ---------- WEEK TIMELINE (horizontal scroll) ---------- */
 .story-head{background:linear-gradient(#b9c8b2,var(--deep) 30%);text-align:center;padding:90px 20px 50px}
 .story-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,52px);line-height:1.08;max-width:760px;margin:0 auto}
-.tl{position:relative;height:420vh}
+.tl{position:relative;height:250vh}
 .tl-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:radial-gradient(90% 90% at 50% 100%,#33483a 0%,#1f2c23 55%,#16201a 100%)}
-.tl-track{position:absolute;left:0;top:84px;bottom:112px;display:flex;gap:4vw;padding:0 11vw;will-change:transform}
+.tl-track{position:absolute;left:0;top:84px;bottom:112px;display:flex;gap:4vw;padding:0 11vw;}
 .tl-card{flex:0 0 78vw;height:100%;display:grid;grid-template-columns:minmax(0,auto) minmax(260px,1fr);gap:4vw;align-items:center;opacity:.32;transition:opacity .5s}
 .tl-card.on{opacity:1}
 .tl-card figure{position:relative;height:100%;aspect-ratio:4/5;max-width:44vw;overflow:hidden;border-radius:6px;background:var(--forest)}
@@ -126,7 +127,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 /* ---------- SEASONS (sticky weather scene) ---------- */
 .season-head{background:linear-gradient(#1c271f,var(--ink));text-align:center;padding:90px 20px 50px}
 .season-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,52px);line-height:1.08;max-width:760px;margin:0 auto}
-.season{position:relative;height:440vh}
+.season{position:relative;height:300vh}
 .season-stage{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:2fr 1fr;overflow:hidden}
 .scene{position:relative;overflow:hidden;background:var(--deep)}
 .skin-frame{position:absolute;left:50%;top:50%;width:max(100%,80vh);aspect-ratio:4/5;transform:translate(-50%,-50%)}
@@ -156,8 +157,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   linear-gradient(90deg,rgba(18,26,21,.85) 0%,rgba(18,26,21,.35) 45%,rgba(18,26,21,0) 70%),
   radial-gradient(70% 90% at 70% 60%,#9fb497 0%,#5f7a5f 40%,#2b3d30 80%)}
 .manifesto .arch{position:absolute;right:8vw;bottom:0;width:min(46vw,620px);aspect-ratio:3/4;border-radius:50% 50% 0 0/38% 38% 0 0;background:linear-gradient(180deg,#e6dfcf,#c9bda3);overflow:hidden;box-shadow:inset 0 30px 80px rgba(0,0,0,.12)}
-.manifesto .arch .sun{position:absolute;left:50%;top:18%;width:42%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,#f6f1e6,#dfe5d4 60%,#b9c8b2)}
-.manifesto .arch svg.leafs{position:absolute;inset:auto 0 0 0;width:100%}
 .manifesto .mtube{position:absolute;right:calc(8vw + min(46vw,620px)*.33);bottom:5vh;height:62vh;transform:rotate(6deg);filter:drop-shadow(0 30px 40px rgba(0,0,0,.35));z-index:2}
 .manifesto .copy{position:relative;z-index:3;padding:0 28px;max-width:720px}
 .manifesto .kick{font-size:clamp(18px,1.6vw,22px);line-height:1.25}
@@ -249,19 +248,6 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
 .pop .btn:hover{background:var(--moss);color:var(--cream)}
 .pop .x{position:absolute;right:4px;top:2px;width:26px;height:26px;font-size:17px;line-height:1;color:var(--forest)}
 
-/* ---------- CUSTOM CURSOR (Artisun-style glowing dot) ---------- */
-.cursor{display:none}
-@media (hover:hover) and (pointer:fine){
-  html,body,a,button,input,label{cursor:none}
-  .cursor{display:block;position:fixed;top:0;left:0;width:16px;height:16px;border-radius:50%;pointer-events:none;z-index:9999;
-    background:var(--cream);
-    box-shadow:0 0 16px 4px rgba(239,232,218,.95),0 0 34px 8px rgba(143,166,138,.8);
-    transform:translate(-50%,-50%) translate(-100px,-100px);will-change:transform;
-    transition:width .25s,height .25s,opacity .3s,background .25s;opacity:0}
-  .cursor.on{opacity:1}
-  .cursor.big{width:34px;height:34px;background:rgba(239,232,218,.25);box-shadow:0 0 0 1.5px var(--cream),0 0 30px 6px rgba(143,166,138,.6)}
-}
-
 /* reveal */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
 .rv.in{opacity:1;transform:none}
@@ -348,6 +334,203 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
   .social{justify-content:flex-start}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- LUXURY LAYER ---------- */
+:root{--paper:#f8f4ec;--ivory:#efe8da;--mist:#d7dfd1;--hair:rgba(28,38,32,.16);--hair-l:rgba(239,232,218,.2);--ink:#1c2620;--deep:#1f2c23}
+html{text-rendering:optimizeLegibility}
+body{background:var(--paper);font-weight:300;letter-spacing:.005em}
+h1,h2,h3,h4,.spec,.claims li{font-family:var(--display)!important;font-weight:400!important;letter-spacing:.01em}
+.progress{height:1px;background:var(--forest);z-index:60}
+
+/* header */
+.hdr{padding:20px 40px;transition:background .35s,padding .35s;border-bottom:1px solid transparent}
+.hdr.scrolled{background:rgba(248,244,236,.97);padding:13px 40px;border-bottom-color:var(--hair)}
+.hdr-logo{filter:none;font-size:24px}
+.hdr.scrolled .hdr-logo{color:var(--ink)}
+.nav{gap:30px;align-items:center}
+.nav a,.nav button{background:none;border:0;padding:4px 0;color:var(--ivory);font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase}
+.nav a:hover,.nav button:hover{background:none;color:var(--ivory);opacity:.65}
+.hdr.scrolled .nav a{color:var(--ink)}
+.hdr.scrolled .nav a:hover{color:var(--ink)}
+.nav .nav-order{padding:9px 18px;border:1px solid currentColor;background:none;color:var(--ivory)}
+.nav .nav-order:hover{background:none;color:var(--ivory)}
+.hdr.scrolled .nav .nav-order{background:var(--deep);border-color:var(--deep);color:var(--ivory)}
+.hdr.scrolled .nav .nav-order:hover{opacity:.85;color:var(--ivory)}
+
+/* buttons */
+.btn{border-radius:0;background:var(--deep);color:var(--ivory);font-size:11px;font-weight:400;letter-spacing:.22em;padding:15px 30px;border:1px solid var(--deep);transition:background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--deep)}
+
+/* hero: same composition, cleaner surface */
+.hero-stage{background:var(--deep)}
+.hero-moon{background:#c9d4c2;box-shadow:none}
+.hero-moon::after{display:none}
+.hero-tube{height:78vh;width:auto;filter:none}
+.hero-tag{font-family:var(--display);font-size:22px}
+.hero-meta{font-size:10px;letter-spacing:.24em}
+.hero-statement h2{font-size:clamp(28px,3.1vw,48px);line-height:1.12}
+.hero-statement p{font-size:13px;letter-spacing:.04em}
+.mini-card{border-radius:0;background:transparent;backdrop-filter:none;border:1px solid var(--hair-l);padding:8px 16px 8px 8px}
+.mini-card .thumb{border-radius:0;background:var(--mist)}
+.mini-card .thumb img{height:42px;width:auto}
+.mini-card b{font-family:var(--display);font-size:17px}
+.mini-card small{font-size:10px;letter-spacing:.06em}
+
+/* ingredients */
+.xp-stage{background:var(--mist);color:var(--ink)}
+.xp-head{left:40px;top:104px}
+.xp-head span,.tl-card .wk,.sz .wk{font-size:10px;letter-spacing:.26em;color:inherit;opacity:.7}
+.xp-head h2{font-size:clamp(28px,2.8vw,42px);line-height:1.12}
+.xp-slice{filter:drop-shadow(0 10px 12px rgba(28,38,32,.14))}
+.xp-col b{font-family:var(--display);font-size:clamp(19px,1.7vw,25px)}
+.xp-col small{font-size:12px;opacity:.72;letter-spacing:.02em}
+.xp-col li::after{background:var(--ink);opacity:.4}
+
+/* section heads */
+.story-head,.season-head{background:var(--paper);color:var(--ink);padding:130px 24px 110px}
+.story-head h2,.season-head h2{font-size:clamp(30px,3.4vw,52px);line-height:1.14}
+
+/* timeline */
+.tl-stage{background:var(--deep)}
+.tl-card figure{border-radius:0;background:var(--forest)}
+.tl-card figcaption,.skin-tag{font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:none;padding:0;color:#fff;opacity:.8}
+.tl-card h3,.sz h3{font-size:clamp(32px,3.4vw,52px);line-height:1.08}
+.tl-card p,.sz p{font-size:15px;line-height:1.7;opacity:.82}
+.tl-rail{height:1px}
+.tl-node{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:1px solid rgba(239,232,218,.6)}
+.tl-node span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;top:-26px}
+
+/* skin */
+.season-copy{background:var(--paper);color:var(--ink)}
+.season-label{background:none;color:#fff;padding:0;font-size:10px;letter-spacing:.26em;top:96px;left:40px}
+.sbars span{height:1px;background:var(--hair)}
+.sbars span i{background:var(--ink)}
+.hs i{left:-3px;top:-3px;width:6px;height:6px;background:#fff;border:0;box-shadow:0 0 0 5px rgba(255,255,255,.22)}
+.hs b{top:-11px;line-height:22px;font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:0 9px;border-radius:0;background:var(--paper);color:var(--ink)}
+.hs.r b{left:16px}
+.hs.l b{right:16px}
+
+/* manifesto */
+.manifesto{background:var(--forest)}
+.manifesto .arch{background:var(--ivory);box-shadow:none}
+.manifesto .mtube{height:62vh;width:auto;filter:none}
+.manifesto .kick{font-size:15px;line-height:1.6}
+.manifesto h2{line-height:1;font-size:clamp(44px,5.4vw,84px)}
+.manifesto .side{font-size:15px}
+
+/* product */
+.spot{background:var(--paper);color:var(--ink)}
+.spot::before{background:var(--hair)}
+.spot-row h2{font-size:clamp(42px,5.4vw,84px);line-height:1}
+.spot-row .l p,.spot-row .r p{font-size:14px}
+.chip{background:none;color:var(--ink);padding:0;font-size:10px;letter-spacing:.26em}
+.card{border-radius:0;box-shadow:none;background:var(--mist)}
+.card::before,.card .shadow{display:none}
+.card .view img.ct{height:84%;width:auto;animation:none;filter:drop-shadow(0 12px 14px rgba(28,38,32,.16))}
+.foam{box-shadow:none}
+.thumbs button{border-radius:0;border:1px solid var(--hair);opacity:.6;background:var(--mist)}
+.thumbs button.on{border:1px solid var(--ink)}
+.spot-foot .l{font-size:14px;line-height:1.7}
+.spec{font-size:18px}
+.spot-foot small{font-size:12px}
+.claims{border-top:1px solid var(--hair)}
+.claims li{font-size:17px;line-height:1.3;border-left-color:var(--hair);padding:22px 20px 0}
+
+/* ritual */
+.ritual{background:var(--mist);color:var(--ink);padding:140px 40px}
+.ritual h2 em{font-style:normal;color:var(--moss)}
+.step{border-top-color:var(--hair)}
+.step .n{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.2em;color:var(--ink);opacity:.6}
+.step p{font-size:14px;line-height:1.75}
+
+/* closer + footer */
+.closer{background:var(--deep)}
+.closer .ctube{height:80vh;width:auto;filter:none}
+.closer .lt{font-size:15px;line-height:1.6}
+.closer .rt .btn{background:var(--ivory);color:var(--deep);border-color:var(--ivory)}
+.closer .rt .btn:hover{background:transparent;color:var(--ivory)}
+footer{background:var(--ink)}
+.news form{border-radius:0;padding:0;background:none;border-bottom:1px solid var(--hair-l)}
+.news input[type=email]{color:var(--ivory);padding:10px 0}
+.news input::placeholder{color:var(--ivory);opacity:.6}
+.news form button{background:none;color:var(--ivory);border-radius:0;padding:8px 0 8px 14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+
+/* order popup */
+.pop{width:286px;padding:0;gap:0;border-radius:0;background:var(--paper);border:1px solid var(--hair);box-shadow:0 10px 30px rgba(28,38,32,.12);align-items:stretch}
+.pop .ph{flex:0 0 76px;height:auto;border-radius:0;background:var(--mist)}
+.pop .ph img{height:78px;width:auto}
+.pop>span:last-of-type{padding:12px 14px}
+.pop b{font-family:var(--display);font-size:18px}
+.pop small{font-size:11px}
+.pop .btn{padding:8px 14px;font-size:9px}
+.pop .btn:hover{background:transparent;color:var(--deep)}
+
+@media (max-width:900px){
+  .hdr,.hdr.scrolled{padding-left:18px;padding-right:18px}
+  .nav{gap:16px}
+  .nav .nav-order{padding:7px 12px}
+  .xp-head{left:16px;top:76px}
+  .season-label{left:16px;top:76px}
+  .story-head,.season-head{padding:90px 20px 70px}
+  .ritual{padding:90px 20px}
+  .pop{width:auto;padding:0}
+  .pop .ph{flex-basis:44px}
+  .pop .ph img{height:50px}
+  .pop>span:last-of-type{padding:6px 34px 6px 10px}
+  .claims li,.claims li:first-child{font-size:16px}
+}
+/* type at small sizes stays in the sturdier serif */
+.claims li,.pop b,.mini-card b,.step h4,.spec,.xp-col b{font-family:var(--serif)!important}
+.claims li{font-size:19px}
+.step h4{font-size:24px}
+.card .view img.ct{position:absolute;left:50%;top:8%;transform:translateX(-50%)}
+.spot::before{display:none}
+.xp-stack{top:53%;height:54vh}
+.xp-col{top:53%;height:60vh}
+.tl-card figcaption,.skin-tag{background:var(--paper);color:var(--ink);padding:3px 7px;opacity:1}
+@media (max-width:900px){.xp-stack{top:57%;height:42vh}.xp-col{top:57%;height:54vh}}
+
+/* ---------- SIMPLE TYPE + COMPACT LAYOUT ---------- */
+:root{--logo:'Italiana',Georgia,serif;--display:'Inter',system-ui,sans-serif;--serif:'Inter',system-ui,sans-serif}
+.wm,h1.wm{font-family:var(--logo)!important;letter-spacing:.02em}
+h2,h3{font-weight:300!important;letter-spacing:-.02em;line-height:1.15!important}
+h4{font-weight:500!important;letter-spacing:0}
+.hero-tag{font-size:16px;font-weight:300}
+.hero-statement h2{font-size:clamp(24px,2.5vw,38px)}
+.mini-card b{font-size:14px;font-weight:500}
+.xp-head h2{font-size:clamp(24px,2.3vw,34px)}
+.xp-col b{font-size:15px;font-weight:500;letter-spacing:0}
+.story-head,.season-head{padding:88px 24px 72px}
+.story-head h2,.season-head h2{font-size:clamp(26px,2.8vw,42px)}
+.sz h3{font-size:clamp(26px,2.6vw,38px)}
+.manifesto h2{font-size:clamp(36px,4.4vw,68px)}
+.spot-row h2{font-size:clamp(34px,4.2vw,64px)}
+.ritual{padding:96px 40px}
+.ritual h2{font-size:clamp(28px,3vw,46px)}
+.step h4{font-size:17px}
+.claims li{font-size:15px;font-weight:400;letter-spacing:0;line-height:1.4}
+.spec{font-size:15px;font-weight:400}
+.pop b{font-size:15px;font-weight:500}
+.closer .rt h2{font-size:clamp(28px,3vw,46px)}
+
+/* week timeline: smaller */
+.tl-track{top:17vh;bottom:auto;height:58vh;gap:6vw;padding:0 18vw}
+.tl-card{flex:0 0 58vw;grid-template-columns:auto minmax(240px,1fr);gap:3.5vw}
+.tl-card figure{max-width:none}
+.tl-card h3{font-size:clamp(24px,2.4vw,34px);margin:8px 0}
+.tl-card p{font-size:14px;line-height:1.65;max-width:320px}
+.tl-rail{left:18vw;right:18vw;bottom:13vh}
+@media (min-width:901px) and (max-width:1300px){.tl-rail{right:330px}}
+
+@media (max-width:900px){
+  .tl-track{top:78px;bottom:auto;height:auto;gap:6vw;padding:0 7vw}
+  .tl-card{flex-basis:86vw;height:auto;grid-template-columns:1fr;grid-template-rows:auto auto;gap:12px}
+  .tl-card figure{height:40vh;width:auto;margin:0 auto}
+  .tl-card h3{font-size:22px}
+  .tl-card p{font-size:14px}
+  .tl-rail{left:12vw;right:12vw;bottom:92px}
+  .ritual{padding:72px 20px}
+}
 </style>
 </head>
 <body>
@@ -362,10 +545,6 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     <path d="M110 20 A30 30 0 0 1 110 80 A24 30 0 0 0 110 20Z" fill="currentColor"/>
   </symbol>
   <symbol id="tube" viewBox="0 0 238 540"><image href="assets/origine-tube.webp" width="238" height="540"/></symbol>
-  <symbol id="leaf" viewBox="0 0 100 200">
-    <path d="M50 198 C50 140 50 80 50 4" stroke="currentColor" stroke-width="2" fill="none"/>
-    <path d="M50 30 C20 40 8 80 12 120 C30 100 48 70 50 30Z M50 60 C80 70 92 110 88 150 C70 130 52 100 50 60Z M50 100 C24 110 16 140 20 175 C36 160 48 135 50 100Z" fill="currentColor"/>
-  </symbol>
 </svg>
 
 <header class="hdr" id="hdr">
@@ -387,9 +566,8 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
   <div class="hero-stage">
-    <div class="hero-grain"></div>
-    <div class="hero-moon" id="heroMoon"></div>
-    <svg class="hero-tube" id="heroTube" viewBox="0 0 238 540" aria-label="Origine Gel Moussant tube"><use href="#tube"/></svg>
+        <div class="hero-moon" id="heroMoon"></div>
+    <img class="hero-tube" id="heroTube" src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="Origine Gel Moussant tube">
     <h1 class="hero-wm wm" id="heroWm" aria-label="Hormonié">H<svg class="o" viewBox="0 0 140 100"><use href="#logoO"/></svg>RMONIÉ</h1>
     <p class="hero-tag" id="heroTag">Skincare, built for your cycle.</p>
     <p class="hero-meta" id="heroMeta">Hormone-conscious skincare<br>Made in India</p>
@@ -400,7 +578,7 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     </div>
     <div class="mini-cards" id="miniCards">
       <a href="#origine" class="mini-card">
-        <span class="thumb"><svg viewBox="0 0 238 540"><use href="#tube"/></svg></span>
+        <span class="thumb"><img src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt=""></span>
         <span><b>Origine</b><small>Gel Moussant · 100 ml</small></span>
         <span class="arr">→</span>
       </a>
@@ -438,19 +616,19 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
   <div class="tl-stage">
     <div class="tl-track" id="tlTrack">
       <article class="tl-card on">
-        <figure><img src="assets/week-1.jpg" alt="Week 1: Menstrual week skin, illustrative AI model" width="952" height="1186" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <figure><img src="assets/week-1.webp" alt="Week 1: Menstrual week skin, illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
         <div><span class="wk">Week 1 · Menstrual week</span><h3>Your period week</h3><p>dulls everything down. Skin feels dry, sensitive and a little tired of being touched.</p></div>
       </article>
       <article class="tl-card">
-        <figure><img src="assets/week-2.jpg" alt="Week 2: Follicular week skin, illustrative AI model" width="952" height="1186" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <figure><img src="assets/week-2.webp" alt="Week 2: Follicular week skin, illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
         <div><span class="wk">Week 2 · Follicular week</span><h3>And then, the glow.</h3><p>Oestrogen rises and skin bounces back — the week it just needs to be kept clean, not stripped.</p></div>
       </article>
       <article class="tl-card">
-        <figure><img src="assets/week-3.jpg" alt="Week 3: Ovulation skin, illustrative AI model" width="952" height="1186" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <figure><img src="assets/week-3.webp" alt="Week 3: Ovulation skin, illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
         <div><span class="wk">Week 3 · Ovulation</span><h3>Peak week.</h3><p>Skin is at its brightest — but a little more oil creeps in by the evening.</p></div>
       </article>
       <article class="tl-card">
-        <figure><img src="assets/week-4.jpg" alt="Week 4: Luteal week skin, illustrative AI model" width="952" height="1186" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <figure><img src="assets/week-4.webp" alt="Week 4: Luteal week skin, illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
         <div><span class="wk">Week 4 · Luteal week</span><h3>And right on schedule,</h3><p>progesterone kicks in, pores get busy and the chin breakouts show up like clockwork.</p></div>
       </article>
     </div>
@@ -467,10 +645,10 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     <div class="scene" id="scene">
       <span class="season-label" id="seasonLabel">Dry skin</span>
       <div class="skin-frame">
-        <div class="skin-pic on" data-s="0"><img src="assets/skin-dry.jpg" alt="Illustrative close-up of dry skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:46%;top:42%"><i></i><b>Fine, flaky patches</b></span><span class="hs l" style="left:58%;top:70%"><i></i><b>Tight, dull texture</b></span></div>
-        <div class="skin-pic" data-s="1"><img src="assets/skin-oily.jpg" alt="Illustrative close-up of oily skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:62%;top:46%"><i></i><b>Surface shine</b></span><span class="hs r" style="left:28%;top:47%"><i></i><b>A small breakout</b></span><span class="hs r" style="left:46%;top:76%"><i></i><b>Visible pores</b></span></div>
-        <div class="skin-pic" data-s="2"><img src="assets/skin-normal.jpg" alt="Illustrative close-up of normal skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:36%;top:42%"><i></i><b>Even tone</b></span><span class="hs r" style="left:52%;top:62%"><i></i><b>Fine, soft pores</b></span></div>
-        <div class="skin-pic" data-s="3"><img src="assets/skin-combo.jpg" alt="Illustrative close-up of combination skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs l" style="left:33%;top:62%"><i></i><b>Shiny, oily T-zone</b></span><span class="hs l" style="left:80%;top:60%"><i></i><b>Drier, flakier cheek</b></span></div>
+        <div class="skin-pic on" data-s="0"><img src="assets/skin-dry.webp" alt="Illustrative close-up of dry skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:46%;top:42%"><i></i><b>Fine, flaky patches</b></span><span class="hs l" style="left:58%;top:70%"><i></i><b>Tight, dull texture</b></span></div>
+        <div class="skin-pic" data-s="1"><img src="assets/skin-oily.webp" alt="Illustrative close-up of oily skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:62%;top:46%"><i></i><b>Surface shine</b></span><span class="hs r" style="left:28%;top:47%"><i></i><b>A small breakout</b></span><span class="hs r" style="left:46%;top:76%"><i></i><b>Visible pores</b></span></div>
+        <div class="skin-pic" data-s="2"><img src="assets/skin-normal.webp" alt="Illustrative close-up of normal skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:36%;top:42%"><i></i><b>Even tone</b></span><span class="hs r" style="left:52%;top:62%"><i></i><b>Fine, soft pores</b></span></div>
+        <div class="skin-pic" data-s="3"><img src="assets/skin-combo.webp" alt="Illustrative close-up of combination skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs l" style="left:33%;top:62%"><i></i><b>Shiny, oily T-zone</b></span><span class="hs l" style="left:80%;top:60%"><i></i><b>Drier, flakier cheek</b></span></div>
       </div>
       <small class="skin-tag">Illustrative AI image</small>
     </div>
@@ -487,10 +665,8 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
 <!-- ===== MANIFESTO ===== -->
 <section class="manifesto" id="about">
   <div class="arch">
-    <div class="sun"></div>
-    <svg class="leafs" viewBox="0 0 400 220" preserveAspectRatio="none"><path d="M0 220 V150 Q60 90 120 130 T240 120 T400 110 V220Z" fill="#8fa68a"/><path d="M0 220 V180 Q80 140 170 170 T400 160 V220Z" fill="#4d6450"/></svg>
   </div>
-  <svg class="mtube" viewBox="0 0 238 540"><use href="#tube"/></svg>
+  <img class="mtube" src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="" loading="lazy">
   <div class="copy rv">
     <p class="kick">So we made one that's kind to<br>every week, and every skin type</p>
     <h2>The first<br>Hormone-<br>conscious<sup>™</sup> cleanser</h2>
@@ -510,7 +686,7 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
       <div class="card-col">
         <span class="chip">Origine · Gel Moussant</span>
         <div class="card">
-          <div class="view" data-v="0"><svg class="ct" viewBox="0 0 238 540"><use href="#tube"/></svg></div>
+          <div class="view" data-v="0"><img class="ct" src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="Origine Gel Moussant, 100 ml" loading="lazy"></div>
           <div class="view off" data-v="1"><div class="foam"></div></div>
           <div class="shadow"></div>
         </div>
@@ -551,7 +727,7 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     <a href="#origine" class="btn">Meet Origine</a>
   </div>
   <div class="big wm" aria-hidden="true">H<svg class="o" viewBox="0 0 140 100"><use href="#logoO"/></svg>RMONIÉ</div>
-  <svg class="ctube" viewBox="0 0 238 540"><use href="#tube"/></svg>
+  <img class="ctube" src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="" loading="lazy">
 </section>
 </main>
 
@@ -582,9 +758,8 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
   <div class="fb"><span>© HORMONIÉ 2026</span><span>contact@hormonieindia.com · Response &lt; 48h</span></div>
 </footer>
 
-<div class="cursor" id="cursor" aria-hidden="true"></div>
 <aside class="pop" id="pop" aria-label="Order Origine">
-  <span class="ph"><svg viewBox="0 0 238 540" aria-hidden="true"><use href="#tube"/></svg></span>
+  <span class="ph"><img src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="" loading="lazy"></span>
   <span>
     <span><b>Origine</b>
     <small>Gel Moussant · 100 ml<span id="popPrice"></span></small></span>
@@ -602,8 +777,8 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
   const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
   const xp=$('#ingredients'), xpS=$$('.xp-slice'), xpF=$$('.xp-f'), xpI=$$('.xp-col li');
   const tl=$('#story'), tlT=$('#tlTrack'), tlC=$$('.tl-card'), tlN=$$('.tl-node'), tlFill=$('#tlFill');
-  const pop=$('#pop'), foot=document.querySelector('footer'), spot=$('#origine');
-  let popClosed=false;
+  const pop=$('#pop'), foot=document.querySelector('footer'), spot=$('#origine'), closer=$('.closer');
+  let popClosed=false, tlMax=tlT.scrollWidth-innerWidth;
 
   function onScroll(){
     const y=scrollY, vh=innerHeight;
@@ -612,8 +787,8 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     const hp=clamp(y/(hero.offsetHeight-vh));
     wm.style.transform=`translateX(-50%) translateY(${-hp*40}vh) scale(${1-hp*.75})`;
     wm.style.opacity=1-clamp((hp-.35)/.25);
-    tube.style.transform=`translateX(calc(-50% - ${hp*14}vw)) rotate(${-8+hp*14}deg) translateY(${-hp*6}vh)`;
-    moon.style.transform=`translate(calc(-50% - ${hp*14}vw),-50%) scale(${1+hp*.15})`;
+    tube.style.transform=`translateX(calc(-50% - ${hp*20}vw)) rotate(${-8+hp*14}deg) translateY(${-hp*6}vh)`;
+    moon.style.transform=`translate(calc(-50% - ${hp*20}vw),-50%) scale(${1+hp*.15})`;
     tag.style.opacity=meta.style.opacity=1-clamp(hp/.3);
     const so=clamp((hp-.45)/.3);
     stmt.style.opacity=so; minis.style.opacity=so;
@@ -622,30 +797,20 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     hdr.classList.toggle('scrolled',hp>.5||y>hero.offsetHeight);
     // ingredients: the tube opens up, then callouts land one by one
     const xr=xp.getBoundingClientRect(), xpP=clamp(-xr.top/(xp.offsetHeight-vh)), open=clamp(xpP/.3);
-    xpS.forEach((s,i)=>{s.style.transform=`translateY(${(i-2)*open*(innerWidth<900?4.6:6.2)}vh) rotate(${(i%2?-1:1)*open*5}deg)`});
+    xpS.forEach((s,i)=>{s.style.transform=`translateY(${(i-2)*open*(innerWidth<900?4.4:5.6)}vh) rotate(${(i%2?-1:1)*open*5}deg)`});
     xpF.forEach(f=>f.style.opacity=open);
     xpI.forEach(l=>l.classList.toggle('on',xpP>.2+(+l.dataset.k)*.065));
     // week timeline: vertical scroll drives the horizontal track
     const tr=tl.getBoundingClientRect(), tp=clamp(-tr.top/(tl.offsetHeight-vh));
-    tlT.style.transform=`translateX(${-tp*(tlT.scrollWidth-innerWidth)}px)`;
+    tlT.style.transform=`translateX(${-tp*tlMax}px)`;
     tlFill.style.transform=`scaleX(${tp})`;
     const a=Math.round(tp*3);
     tlC.forEach((c,k)=>c.classList.toggle('on',k===a));
     tlN.forEach((d,k)=>d.classList.toggle('on',k<=a));
     // order popup: after the hero, hidden over the footer
     const sr=spot.getBoundingClientRect();
-    pop.classList.toggle('on',!popClosed&&y>hero.offsetHeight-vh&&foot.getBoundingClientRect().top>vh-40&&(sr.top>vh*.6||sr.bottom<vh*.4));
+    pop.classList.toggle('on',!popClosed&&y>hero.offsetHeight-vh&&closer.getBoundingClientRect().top>vh*.85&&(sr.top>vh*.6||sr.bottom<vh*.4));
   }
-  // ---------- CURSOR ----------
-  const cur$=$('#cursor');
-  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
-    let mx=-100,my=-100,cxp=-100,cyp=-100;
-    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur$.classList.add('on')},{passive:true});
-    document.addEventListener('mouseleave',()=>cur$.classList.remove('on'));
-    document.addEventListener('mouseover',e=>cur$.classList.toggle('big',!!e.target.closest('a,button,input,label,.mini-card')));
-    (function loop(){cxp+=(mx-cxp)*.35;cyp+=(my-cyp)*.35;cur$.style.transform=`translate(-50%,-50%) translate(${cxp}px,${cyp}px)`;requestAnimationFrame(loop)})();
-  }
-
   // ---------- SKIN TYPES ----------
   const season=$('#season'), szs=$$('.sz'), sbars=$$('.sbars i'), pics=$$('.skin-pic');
   const sLabel=$('#seasonLabel');
@@ -663,10 +828,13 @@ footer{background:linear-gradient(180deg,#2a3a2e,#16201a);padding:56px 56px 26px
     setSeason(Math.min(n-1,Math.floor(sp*n)));
     sbars.forEach((b,k)=>b.style.transform=`scaleX(${clamp(sp*n-k)})`);
   }
-  addEventListener('scroll',onSeasonScroll,{passive:true}); onSeasonScroll();
+  onSeasonScroll();
 
-  addEventListener('scroll',onScroll,{passive:true});
-  addEventListener('resize',onScroll);
+  let ticking=false;
+  const frame=()=>{ticking=false;onScroll();onSeasonScroll()};
+  const queue=()=>{if(!ticking){ticking=true;requestAnimationFrame(frame)}};
+  addEventListener('scroll',queue,{passive:true});
+  addEventListener('resize',()=>{tlMax=tlT.scrollWidth-innerWidth;queue()});
   onScroll();
 
   // ---------- ORDER POPUP ----------
