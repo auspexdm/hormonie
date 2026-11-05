@@ -727,6 +727,24 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   .hero-wm{top:10vh;width:min(62vw,88vh)}
   .hero-tag{left:0;right:0;bottom:auto;max-width:none;text-align:center;top:calc(10vh + min(62vw,88vh)*.25);font-size:22px;font-weight:300;letter-spacing:.01em}
 }
+
+/* ---------- MALE / FEMALE SELECTOR ---------- */
+.tl[hidden]{display:none}
+#storyM .tl-stage{background:var(--sagebg);color:#0d3723;--cream:#0d3723;--ivory:#0d3723;--sage-2:#0d3723;--hair-l:rgba(13,55,35,.24)}
+#storyM .tl-node{background:var(--sagebg)}
+#storyM .tl-node.on{background:#0d3723}
+#storyM .tl-rail{background:rgba(13,55,35,.25)}
+#storyM .tl-card{opacity:.35}
+#storyM .tl-card.on{opacity:1}
+.who{margin-top:44px}
+.who p{font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.65;margin-bottom:16px}
+.who-btns{display:flex;justify-content:center;gap:12px}
+.who-btns button{min-width:170px;padding:17px 30px;border:1px solid #0d3723;color:#0d3723;font-size:13px;letter-spacing:.18em;text-transform:uppercase;transition:background .3s,color .3s}
+.who-btns button:hover{background:rgba(13,55,35,.08)}
+.who-btns button[aria-pressed="true"]{background:#0d3723;color:#fefbf4}
+@media (max-width:900px){
+  .who-btns button{min-width:0;flex:1;max-width:170px;padding:15px 12px;font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -744,7 +762,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   <nav class="nav" aria-label="Main">
     <a href="#origine">Shop</a>
     <a href="#ingredients" class="hide-m">Ingredients</a>
-    <a href="#cycle" class="hide-m">Your cycle</a>
+    <a href="#cycle" class="hide-m">Your timeline</a>
     <a href="#skin" class="hide-m">Your skin</a>
     <a href="#ritual" class="hide-m">Ritual</a>
     <a href="#about" class="hide-m">About</a>
@@ -776,7 +794,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
       </a>
       <a href="#ritual" class="mini-card">
         <span class="thumb"><svg class="logo-o" viewBox="700 0 730 1260" aria-hidden="true"><use href="#brandLogo" width="5328" height="1260"/></svg></span>
-        <span><b>The Ritual</b><small>Cleanse with your cycle</small></span>
+        <span><b>The Ritual</b><small>Cleanse morning and night</small></span>
         <span class="arr">→</span>
       </a>
     </div>
@@ -802,10 +820,14 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
 
 <!-- ===== WEEK TIMELINE ===== -->
 <div class="story-head" id="cycle">
-  <span class="kick-label rv">Your cycle</span>
+  <span class="kick-label rv">Your timeline</span>
   <h2 class="rv">Because your hormones decide<br>what kind of day your skin gets.</h2>
+  <div class="who rv" role="group" aria-label="Choose your timeline">
+    <p>Choose your timeline</p>
+    <div class="who-btns"><button type="button" data-who="f" aria-pressed="false">Female</button><button type="button" data-who="m" aria-pressed="false">Male</button></div>
+  </div>
 </div>
-<section class="tl light" id="story">
+<section class="tl light" id="story" data-who="f" hidden>
   <div class="tl-stage">
     <div class="tl-track">
       <article class="tl-card on">
@@ -829,6 +851,30 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   </div>
 </section>
 
+<section class="tl light" id="storyM" data-who="m" hidden>
+  <div class="tl-stage">
+    <div class="tl-track">
+      <article class="tl-card on">
+        <figure><img src="assets/man-1.webp" alt="Morning: illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <div><span class="wk">Morning · Testosterone peaks</span><h3>Peak hormones.</h3><p>Testosterone is at its highest in the morning, and skin often wakes up with a little shine.</p></div>
+      </article>
+      <article class="tl-card">
+        <figure><img src="assets/man-2.webp" alt="Midday: illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <div><span class="wk">Midday · Heat and sweat</span><h3>Sweat builds up.</h3><p>Heat, sweat and pollution settle on skin, and the T-zone starts to shine.</p></div>
+      </article>
+      <article class="tl-card">
+        <figure><img src="assets/man-3.webp" alt="Evening: illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <div><span class="wk">Evening · Levels dip</span><h3>The day shows up.</h3><p>Testosterone eases off. Skin looks tired, and shaving irritation can show along the jaw.</p></div>
+      </article>
+      <article class="tl-card">
+        <figure><img src="assets/man-4.webp" alt="Night: illustrative AI model" width="760" height="947" loading="lazy" decoding="async"><figcaption>Illustrative AI model</figcaption></figure>
+        <div><span class="wk">Night · Reset</span><h3>Wash it off.</h3><p>Clean, calm skin for the night. Cold water, a soft foam, done.</p></div>
+      </article>
+    </div>
+    <div class="tl-rail"><i class="tl-fill"></i><span class="tl-node on" style="left:0.000%"><span>Morning</span></span><span class="tl-node" style="left:33.333%"><span>Midday</span></span><span class="tl-node" style="left:66.667%"><span>Evening</span></span><span class="tl-node" style="left:100.000%"><span>Night</span></span></div>
+  </div>
+</section>
+
 <!-- ===== SKIN TYPES ===== -->
 <div class="season-head" id="skin">
   <span class="kick-label rv">Your skin</span>
@@ -843,11 +889,11 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
       </article>
       <article class="tl-card">
         <figure><img src="assets/skin-oily.webp" alt="Illustrative close-up of oily skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs l" style="left:70%;top:34%"><i></i><b>Surface shine</b></span><span class="hs r" style="left:28%;top:47%"><i></i><b>A small breakout</b></span><span class="hs r" style="left:46%;top:76%"><i></i><b>Visible pores</b></span><figcaption>Illustrative AI image</figcaption></figure>
-        <div><span class="wk">Oily skin</span><h3>Shiny by lunch.</h3><p>Extra oil across the face, busier pores, and breakouts that like to turn up before your period.</p></div>
+        <div><span class="wk">Oily skin</span><h3>Shiny by lunch.</h3><p>Extra oil across the face, busier pores, and breakouts that like to turn up when hormones shift.</p></div>
       </article>
       <article class="tl-card">
         <figure><img src="assets/skin-normal.webp" alt="Illustrative close-up of normal skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:36%;top:42%"><i></i><b>Even tone</b></span><span class="hs r" style="left:40%;top:62%"><i></i><b>Fine, soft pores</b></span><figcaption>Illustrative AI image</figcaption></figure>
-        <div><span class="wk">Normal skin</span><h3>Calm, mostly.</h3><p>Balanced on most days, until your cycle has other plans for the week.</p></div>
+        <div><span class="wk">Normal skin</span><h3>Calm, mostly.</h3><p>Balanced on most days, until your hormones have other plans for the week.</p></div>
       </article>
       <article class="tl-card">
         <figure><img src="assets/skin-combo.webp" alt="Illustrative close-up of combination skin" width="952" height="1186" loading="lazy" decoding="async"><span class="hs r" style="left:22%;top:30%"><i></i><b>Shiny, oily T-zone</b></span><span class="hs l" style="left:80%;top:60%"><i></i><b>Drier, flakier cheek</b></span><figcaption>Illustrative AI image</figcaption></figure>
@@ -864,10 +910,10 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   </div>
   <img class="mtube" src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="" loading="lazy">
   <div class="copy rv">
-    <p class="kick">So we made one that's kind to<br>every week, and every skin type</p>
+    <p class="kick">So we made one that's kind to<br><span data-m="every day, and every skin type">every week, and every skin type</span></p>
     <h2>The first<br>Hormone-<br>conscious<sup>™</sup> cleanser</h2>
   </div>
-  <p class="side rv">Built for your cycle,<br>not just your skin type.</p>
+  <p class="side rv">Built for your hormones,<br>not just your skin type.</p>
 </section>
 
 <!-- ===== PRODUCT SPOTLIGHT ===== -->
@@ -887,10 +933,10 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
           <div class="shadow"></div>
         </div>
       </div>
-      <div class="r rv"><h2>every week</h2><p>of your cycle, in one wash.</p></div>
+      <div class="r rv"><h2 data-m="every day">every week</h2><p data-m="morning and night, in one wash.">of your cycle, in one wash.</p></div>
     </div>
     <div class="spot-foot">
-      <p class="l rv">Best for: hormonal, breakout-prone and sensitive skin. Morning and night, period week to PMS week.</p>
+      <p class="l rv">Best for: hormonal, breakout-prone and sensitive skin. <span data-m="Morning and night, every day.">Morning and night, period week to PMS week.</span></p>
       <div class="r rv">
         <a class="btn order-link" target="_blank" rel="noopener">Place order</a>
         <span class="spec">100 ml · Gel Moussant</span>
@@ -908,7 +954,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   <div class="ritual-in">
     <h2 class="rv">Your skin has moods.<br><em>They're not random.</em></h2>
     <div class="steps">
-      <div class="step rv"><span class="n">01</span><h4>Wet</h4><p>Splash your face with cold water only. Never lukewarm or hot, especially in period week when skin is most reactive.</p></div>
+      <div class="step rv"><span class="n">01</span><h4>Wet</h4><p>Splash your face with cold water only. <span data-m="Never lukewarm or hot.">Never lukewarm or hot, especially in period week when skin is most reactive.</span></p></div>
       <div class="step rv"><span class="n">02</span><h4>Foam</h4><p>Work a pea-sized amount of Origine between damp palms into a soft lather. Massage for 30–60 seconds.</p></div>
       <div class="step rv"><span class="n">03</span><h4>Rinse</h4><p>Rinse clean with cold water and pat dry. Skin should feel comfortable — clean, not tight. Follow with your usual routine.</p></div>
     </div>
@@ -931,7 +977,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   <div class="ft">
     <div>
       <h5>Quick Links</h5>
-      <ul><li><a href="#origine">Shop</a></li><li><a href="#cycle">Your cycle</a></li><li><a href="#ritual">Ritual</a></li><li><a href="mailto:contact@hormonieindia.com">Contact</a></li></ul>
+      <ul><li><a href="#origine">Shop</a></li><li><a href="#cycle">Your timeline</a></li><li><a href="#ritual">Ritual</a></li><li><a href="mailto:contact@hormonieindia.com">Contact</a></li></ul>
     </div>
     <div>
       <h5>Policies</h5>
@@ -942,7 +988,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
         <a href="#" aria-label="Instagram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
         <a href="#" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"/><path d="M9 9.5c.3 2 2.2 4.2 4.6 4.9l1.1-1.1 1.6.8c-.2 1-1 1.6-2 1.6-3 0-6.2-3.2-6.2-6.2 0-1 .6-1.8 1.6-2l.8 1.6L9 9.5z"/></svg></a>
       </div>
-      <p>Be the first to hear about new launches, cycle-care notes and members-only offers.</p>
+      <p>Be the first to hear about new launches, skin-care notes and members-only offers.</p>
       <form id="newsForm">
         <input type="email" required placeholder="Enter email" aria-label="Email address">
         <button type="submit">Subscribe</button>
@@ -999,6 +1045,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
     xpI.forEach(l=>l.classList.toggle('on',xpP>.2+(+l.dataset.k)*.065));
     // week timeline: vertical scroll drives the horizontal track
     tls.forEach(o=>{
+      if(o.s.hidden) return;
       const tp=clamp(-o.s.getBoundingClientRect().top/(o.s.offsetHeight-vh)), a=Math.round(tp*3);
       o.t.style.transform=`translateX(${-tp*o.max}px)`;
       o.f.style.transform=`scaleX(${tp})`;
@@ -1014,6 +1061,22 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   addEventListener('scroll',queue,{passive:true});
   addEventListener('resize',()=>{measure();queue()});
   onScroll();
+
+  // ---------- MALE / FEMALE TIMELINE ----------
+  const whoBtns=$$('.who-btns button'), swaps=$$('[data-m]');
+  swaps.forEach(el=>el.dataset.f=el.textContent);
+  function setWho(w,go){
+    tls.forEach(o=>{if(o.s.dataset.who) o.s.hidden=o.s.dataset.who!==w});
+    whoBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.who===w));
+    swaps.forEach(el=>el.textContent=w==='m'?el.dataset.m:el.dataset.f);
+    try{localStorage.setItem('hm_who',w)}catch(e){}
+    measure(); queue();
+    if(go) tls.find(o=>o.s.dataset.who===w).s.scrollIntoView();
+  }
+  whoBtns.forEach(b=>b.addEventListener('click',()=>setWho(b.dataset.who,true)));
+  let savedWho=null;
+  try{savedWho=localStorage.getItem('hm_who')}catch(e){}
+  if(savedWho==='f'||savedWho==='m') setWho(savedWho,false);
 
   // ---------- ORDER POPUP ----------
   // EDIT: WhatsApp number with country code, digits only (e.g. 9198XXXXXXXX), and price (e.g. '₹799')
