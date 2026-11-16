@@ -1135,7 +1135,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   // EDIT: WhatsApp number with country code, digits only (e.g. 9198XXXXXXXX), and price (e.g. '₹799')
   const WA_NUMBER='', PRICE='₹449';
   const msg='Hi Hormonié, I would like to order Origine Gel Moussant (100 ml).';
-  const orderHref='https://hschk7-d1.myshopify.com/cart/67961987137855:1';
+  const orderHref='https://hschk7-d1.myshopify.com/cart/add?id=67961987137855&quantity=1&return_to=/cart'; // Shopify cart → Razorpay Magic Checkout (₹99 COD fee)
   $$('.order-link').forEach(a=>a.href=orderHref);
   $('#popPrice').textContent=PRICE?' · '+PRICE:'';
   $('#popX').addEventListener('click',()=>pop.classList.add('min'));
