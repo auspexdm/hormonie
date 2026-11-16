@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/origine-tube.webp" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#16201a;
@@ -781,6 +781,17 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   .atc-body{padding:22px 22px 24px;gap:10px;text-align:center}
   .atc-body h3{font-size:30px}
 }
+
+/* ---------- CLIENT TYPE SYSTEM: Fraunces Light (headings) + Hanken Grotesk (body) ---------- */
+:root{--display:'Fraunces',Georgia,serif;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif}
+body{font-family:var(--sans);font-weight:400;text-rendering:optimizeLegibility}
+h1:not(.wm),h2,h3,h4,.spec,.claims li,.pop b,.mini-card b,.step h4,.xp-col b,.hero-tag,.atc-body h3,.atc-price,.tl-card h3{font-family:var(--serif)!important;font-weight:300!important;font-optical-sizing:auto;letter-spacing:-.018em}
+h2,.tl-card h3,.manifesto h2,.spot-row h2{line-height:1.04}
+h1 em,h2 em,h3 em{font-style:italic!important;font-weight:300!important;font-family:var(--serif)!important}
+p,li,.spot-foot .l,.news p,.step p,.tl-card p,.hero-statement p{font-family:var(--sans);line-height:1.6;letter-spacing:.002em}
+.nav a,.nav button,.ann,.eyebrow,.kick,small,label,.btn,button,input{font-family:var(--sans)}
+.atc-cta,.btn{font-weight:500}
+.wm,h1.wm{font-family:var(--logo)!important}
 </style>
 </head>
 <body>
