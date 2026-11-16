@@ -755,6 +755,32 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   .hdr{top:32px}
   .xp-head{margin-top:20px}
 }
+
+/* ---------- CENTRE ADD-TO-CART MODAL (on load) ---------- */
+.atc{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px;background:rgba(13,55,35,.45);opacity:0;pointer-events:none;transition:opacity .35s}
+.atc.on{opacity:1;pointer-events:auto}
+.atc-box{position:relative;width:min(760px,100%);display:grid;grid-template-columns:1fr 1fr;background:#fefbf4;color:#0d3723;box-shadow:0 30px 80px rgba(13,55,35,.35);transform:translateY(24px) scale(.97);transition:transform .45s cubic-bezier(.2,1.2,.4,1)}
+.atc.on .atc-box{transform:none}
+.atc-pic{background:var(--sagebg,#a9b29d);display:grid;place-items:center;padding:28px;min-height:360px}
+.atc-pic img{height:320px;width:auto;transform:rotate(-6deg);filter:drop-shadow(0 18px 24px rgba(13,55,35,.25))}
+.atc-body{padding:44px 36px 36px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.atc-eye{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
+.atc-body h3{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.05;margin:0}
+.atc-body h3 small{display:block;font-size:17px;margin-top:6px;opacity:.8}
+.atc-body p{margin:0;font-size:14px;line-height:1.55}
+.atc-price{font-size:22px;font-family:var(--serif)}
+.atc-cta{display:block;text-align:center;background:#0d3723;color:#fefbf4;padding:16px 20px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:1px solid #0d3723;transition:background .25s,color .25s}
+.atc-cta:hover{background:transparent;color:#0d3723}
+.atc-note{font-size:11px;letter-spacing:.06em;opacity:.7;text-align:center}
+.atc-skip{background:none;border:0;color:#0d3723;font-size:12px;text-decoration:underline;cursor:pointer;opacity:.75}
+.atc-x{position:absolute;right:10px;top:8px;width:34px;height:34px;font-size:24px;line-height:1;background:none;border:0;color:#0d3723;cursor:pointer}
+@media (max-width:640px){
+  .atc-box{grid-template-columns:1fr;max-height:calc(100vh - 32px);overflow:auto}
+  .atc-pic{min-height:0;padding:20px}
+  .atc-pic img{height:200px}
+  .atc-body{padding:22px 22px 24px;gap:10px;text-align:center}
+  .atc-body h3{font-size:30px}
+}
 </style>
 </head>
 <body>
@@ -1011,6 +1037,22 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   <div class="fb"><span>© HORMONIÉ 2026</span><span>contact@hormonieindia.com · Response &lt; 48h</span></div>
 </footer>
 
+<div class="atc" id="atc" role="dialog" aria-modal="true" aria-labelledby="atcTitle">
+  <div class="atc-box">
+    <button class="atc-x" id="atcX" aria-label="Close">×</button>
+    <div class="atc-pic"><img src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="Origine Gel Moussant, 100 ml"></div>
+    <div class="atc-body">
+      <span class="atc-eye">Meet Origine</span>
+      <h3 id="atcTitle">Origine<small>Gel Moussant · 100 ml</small></h3>
+      <p>A gentle foaming cleanser for skin that changes with your cycle.</p>
+      <span class="atc-price" id="atcPrice"></span>
+      <a class="atc-cta order-link" target="_blank" rel="noopener">Add to cart</a>
+      <span class="atc-note">Free shipping on orders ₹449 and above</span>
+      <button class="atc-skip" id="atcSkip">Continue browsing</button>
+    </div>
+  </div>
+</div>
+
 <aside class="pop" id="pop" aria-label="Order Origine">
   <span class="ph"><img src="assets/origine-tube.webp" width="741" height="1680" decoding="async" alt="" loading="lazy"></span>
   <span>
@@ -1031,7 +1073,6 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   const xp=$('#ingredients'), xpS=$$('.xp-slice'), xpF=$$('.xp-f'), xpI=$$('.xp-col li');
   const tls=$$('.tl').map(s=>({s,t:s.querySelector('.tl-track'),c:[...s.querySelectorAll('.tl-card')],n:[...s.querySelectorAll('.tl-node')],f:s.querySelector('.tl-fill'),max:0}));
   const measure=()=>tls.forEach(o=>o.max=o.t.scrollWidth-innerWidth);
-  let popReady=false; // add-to-cart popup slides in on page load
   const pop=$('#pop'), foot=document.querySelector('footer'), spot=$('#origine'), closer=$('.closer'), bigName=$('.closer .big');
   measure();
 
@@ -1065,7 +1106,7 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
       o.n.forEach((d,k)=>d.classList.toggle('on',k<=a));
     });
     // order popup: after the hero, hidden over the footer
-    pop.classList.toggle('on',popReady&&bigName.getBoundingClientRect().top>vh-170);
+    pop.classList.toggle('on',y>hero.offsetHeight-vh&&bigName.getBoundingClientRect().top>vh-170);
   }
   let ticking=false;
   const frame=()=>{ticking=false;onScroll()};
@@ -1098,7 +1139,16 @@ footer{border-top:1px solid rgba(13,55,35,.2)}
   $$('.order-link').forEach(a=>a.href=orderHref);
   $('#popPrice').textContent=PRICE?' · '+PRICE:'';
   $('#popX').addEventListener('click',()=>pop.classList.add('min'));
-  setTimeout(()=>{popReady=true;onScroll()},700);
+  // centre add-to-cart modal on page load
+  const atc=$('#atc');
+  $('#atcPrice').textContent=PRICE;
+  const closeAtc=()=>{atc.classList.remove('on');document.removeEventListener('keydown',escAtc)};
+  const escAtc=e=>{if(e.key==='Escape')closeAtc()};
+  $('#atcX').addEventListener('click',closeAtc);
+  $('#atcSkip').addEventListener('click',closeAtc);
+  atc.addEventListener('click',e=>{if(e.target===atc)closeAtc()});
+  atc.querySelector('.atc-cta').addEventListener('click',()=>setTimeout(closeAtc,300));
+  setTimeout(()=>{atc.classList.add('on');document.addEventListener('keydown',escAtc);$('#atcX').focus({preventScroll:true})},700);
 
   // reveal
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
